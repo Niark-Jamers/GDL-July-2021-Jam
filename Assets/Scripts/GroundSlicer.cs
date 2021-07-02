@@ -84,6 +84,11 @@ public class GroundSlicer : MonoBehaviour
     }
 
     //#region
+    public int getMonoSlice(float y)
+    {
+        return (int)(y / sliceInterval);
+    }
+
     public int[] getSlice(float y, int spread)
     {
         int[] tmp = new int[spread];
