@@ -186,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319448700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.81, y: 0, z: -10}
+  m_LocalPosition: {x: 4.14, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451589984}
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.38
-  m_DeadZoneHeight: 0.61
+  m_DeadZoneWidth: 0.5
+  m_DeadZoneHeight: 2
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 1
   m_SoftZoneWidth: 0.8
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619790673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.81, y: 0, z: -10}
+  m_LocalPosition: {x: 4.14, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -949,63 +949,113 @@ MonoBehaviour:
   showChar: 1
   TestList:
   - testTransform: {fileID: 441140066}
-    testSpread: 2
-    testStorage: fcfffffffdffffff
+    testSpread: 3
+    testStorage: f9fffffffafffffffbffffff
   - testTransform: {fileID: 1446647888}
-    testSpread: 2
-    testStorage: fbfffffffcffffff
+    testSpread: 3
+    testStorage: f7fffffff8fffffff9ffffff
   slicedGround:
   - 0
+  - -0.5
   - -1
+  - -1.5
   - -2
+  - -2.5
   - -3
+  - -3.5
   - -4
+  - -4.5
   - -5
+  - -5.5
   - -6
+  - -6.5
   - -7
+  - -7.5
   - -8
+  - -8.5
   - -9
+  - -9.5
   - -10
+  - -10.5
   - -11
+  - -11.5
   - -12
+  - -12.5
   - -13
+  - -13.5
   - -14
+  - -14.5
   - -15
+  - -15.5
   - -16
+  - -16.5
   - -17
+  - -17.5
   - -18
+  - -18.5
   - -19
+  - -19.5
   - -20
+  - -20.5
   - -21
+  - -21.5
   - -22
+  - -22.5
   - -23
+  - -23.5
   - -24
+  - -24.5
   - -25
+  - -25.5
   - -26
+  - -26.5
   - -27
+  - -27.5
   - -28
+  - -28.5
   - -29
+  - -29.5
   - -30
+  - -30.5
   - -31
+  - -31.5
   - -32
+  - -32.5
   - -33
+  - -33.5
   - -34
+  - -34.5
   - -35
+  - -35.5
   - -36
+  - -36.5
   - -37
+  - -37.5
   - -38
+  - -38.5
   - -39
+  - -39.5
   - -40
+  - -40.5
   - -41
+  - -41.5
   - -42
+  - -42.5
   - -43
+  - -43.5
   - -44
+  - -44.5
   - -45
+  - -45.5
   - -46
+  - -46.5
   - -47
+  - -47.5
   - -48
+  - -48.5
   - -49
-  sliceInterval: 1
+  - -49.5
+  sliceInterval: 0.5
 --- !u!1 &1446647886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1431,7 @@ PrefabInstance:
     - target: {fileID: 6444450333889792100, guid: 0c687718c27f58b4e96aef301301769c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.81
+      value: 4.14
       objectReference: {fileID: 0}
     - target: {fileID: 6444450333889792100, guid: 0c687718c27f58b4e96aef301301769c,
         type: 3}

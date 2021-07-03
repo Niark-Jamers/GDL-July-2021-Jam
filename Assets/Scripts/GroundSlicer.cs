@@ -160,7 +160,7 @@ public class GroundSlicer : MonoBehaviour
                 for (int i = 0; i < ts.testStorage.Length; i++)
                 {
                     Gizmos.color = Color.cyan;
-                    Gizmos.DrawSphere(new Vector3(ts.testTransform.position.x, sliceInterval * ts.testStorage[i], 0), sliceInterval / 2);
+                    Gizmos.DrawSphere(new Vector3(ts.testTransform.position.x, sliceInterval * ts.testStorage[i] - sliceInterval / 2, 0), sliceInterval / 2);
                 }
             }
         }
