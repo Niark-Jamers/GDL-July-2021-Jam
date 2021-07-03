@@ -19,11 +19,18 @@ public class GameManager : MonoBehaviour
     [Space]
     public bool pause;
 
-    private Transform playerPosition;
+    public Transform playerPosition;
+
+    public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
         Time.timeScale = 1;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update

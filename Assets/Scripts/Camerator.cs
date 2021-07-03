@@ -8,6 +8,9 @@ public class Camerator : MonoBehaviour
     public Cinemachine.CinemachineVirtualCamera vCam;
     public EdgeCollider2D ec;
 
+    public Transform camGround;
+    Rigidbody2D rbGround;
+
     float updatedCamAtPos;
 
     float ratio;
@@ -32,6 +35,7 @@ public class Camerator : MonoBehaviour
     {
         ratio = Camera.main.aspect;
         targetSize = baseCamSize;
+        rbGround = camGround.gameObject.GetComponent<Rigidbody2D>();
         // Debug.Log(ratio);
         setX();
         YStart = GetLowYAtStart();
@@ -90,7 +94,8 @@ public class Camerator : MonoBehaviour
             if (Vector2.Distance(camPos, hit[i].point) > 1)
                 targetSize = -hit[i].point.y;
         }
-
+        if (targetSize < baseCamSize)
+            targetSize = baseCamSize;
         // Vector2 hypo = new Vector2(XEnd, YEnd) - new Vector2(XStart, YStart);
         // Vector2 adj = camPos - new Vector2(XStart, YStart);
         // float hyangle = Vector2.Angle(adj, hypo) * Mathf.Deg2Rad;
@@ -112,14 +117,8 @@ public class Camerator : MonoBehaviour
         UpdateCamSize();
         vCam.m_Lens.OrthographicSize = Mathf.Lerp(vCam.m_Lens.OrthographicSize, targetSize, Time.deltaTime * speed);
     }
-
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(new Vector3(XStart, YStart, 0), 1);
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(new Vector3(XEnd, YEnd, 0), 1);
+    private void FixedUpdate() {
+        rbGround.MovePosition(new Vector2(rbGround.position.x,(-targetSize-camGround.localScale.y)));
     }
+
 }

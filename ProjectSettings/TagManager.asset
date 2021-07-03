@@ -5,11 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - PowerBall
-  - EnemyBullet
-  - PlayerBullet
   - Wall
-  - Link
+  - PlayerAttack
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
@@ -18,10 +16,10 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyAttack
+  - Player
+  - PlayerAttack
   - 
   - 
   - 

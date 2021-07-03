@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[ExecuteAlways]
+// [ExecuteAlways]
 public class GroundSlicer : MonoBehaviour
 {
 
@@ -33,6 +33,16 @@ public class GroundSlicer : MonoBehaviour
     public List<float> slicedGround = new List<float>();
 
     public float sliceInterval = 1;
+
+    public static GroundSlicer Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+    }
 
     void Start()
     {
@@ -89,7 +99,7 @@ public class GroundSlicer : MonoBehaviour
         return (int)(y / sliceInterval);
     }
 
-    public int[] getSlice(float y, int spread)
+    public int[] getSlices(float y, int spread = 3)
     {
         int[] tmp = new int[spread];
         int i = (int)(y / sliceInterval);
@@ -128,7 +138,7 @@ public class GroundSlicer : MonoBehaviour
             for (int i = 0; i < TestList.Count; i++)
             {
                 testChar tmp = TestList[i];
-                tmp.testStorage = getSlice(tmp.testTransform.position.y, tmp.testSpread);
+                tmp.testStorage = getSlices(tmp.testTransform.position.y, tmp.testSpread);
                 TestList[i] = tmp;
             }
             // if (CompareSlices(TestList[0].testStorage, TestList[1].testStorage))
@@ -148,13 +158,14 @@ public class GroundSlicer : MonoBehaviour
         // Gizmos.DrawSphere(new Vector3(gLeft, gDown / 2, 0), 1);
         // Gizmos.color = Color.blue;
         // Gizmos.DrawSphere(new Vector3(gRight, gDown / 2, 0), 1);
-        foreach (float f in slicedGround)
-        {
-            Gizmos.color = Color.black;
-            Gizmos.DrawLine(new Vector3(gLeft, f, 0), new Vector3(gRight, f, 0));
-        }
+        // 
         if (showChar)
         {
+            foreach (float f in slicedGround)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawLine(new Vector3(gLeft, f, 0), new Vector3(gRight, f, 0));
+            }
             foreach (testChar ts in TestList)
             {
                 for (int i = 0; i < ts.testStorage.Length; i++)
