@@ -18,22 +18,29 @@ public class EnemyController : MonoBehaviour
 
 
     [HideInInspector]
-    public enum enemyState { hover, attack, hitStun };
+    public enum enemyState { hover, attackMove, attacking, hitStun };
 
     [Header("Movement")]
     public float speed = 6f;
     public float hoverDistance = 10f;
     public float hoverVariance = 1f;
     Transform playerPos;
+
     public enemyState currentState = enemyState.hover;
     Vector2 hoverPos;
     // Start is called before the first frame update
 
-    [Header("Fight")]
-    [HideInInspector]
-    public Damage.Profile currentAttack;
+    Vector2 hitPosition;
     float hitStun;
+    [Header("Attack")]
+    public GameObject attackGO;
+
+    public float range = 2;
     public float hitStunDepletionSpeed = 1;
+    public float attackModeTimer = 5f;
+    public float attackTrueTimer = 0f;
+
+    public float attackWindUp = 1f;
 
 
     void Start()
@@ -41,6 +48,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerPos = GameManager.Instance.playerPosition;
+        attackGO.SetActive(false);
         SetHoverPos();
     }
 
@@ -87,7 +95,30 @@ public class EnemyController : MonoBehaviour
         healthFillBar.fillAmount = health / maxHealth;
         if (dead)
             return;
+
         DoHitStun();
+        if (currentState != enemyState.attackMove && currentState != enemyState.attacking)
+            attackTrueTimer += Time.deltaTime;
+        if (attackTrueTimer > attackModeTimer)
+        {
+            currentState = enemyState.attackMove;
+            attackTrueTimer = 0;
+        }
+    }
+
+    void SetHitPosition()
+    {
+        hitPosition = (Vector2)playerPos.position + (rb.position - (Vector2)playerPos.position).normalized * range;
+        hitPosition.y = playerPos.position.y;
+    }
+
+    void SetSafeHoverPos()
+    {
+        int i = 1;
+        if (playerPos.position.x - transform.position.x > 0)
+            i = -1;
+        hoverPos = (Vector2)playerPos.position + Vector2.right * i * hoverDistance;
+        hoverPos += new Vector2(Random.Range(-hoverVariance, hoverVariance), Random.Range(-hoverVariance, hoverVariance));
     }
 
     void SetHoverPos()
@@ -96,42 +127,91 @@ public class EnemyController : MonoBehaviour
         hoverPos += new Vector2(Random.Range(-hoverVariance, hoverVariance), Random.Range(-hoverVariance, hoverVariance));
     }
 
+    void hoverMovement()
+    {
+        if (((Vector2)rb.position - hoverPos).magnitude < 0.05f)
+            SetHoverPos();
+        Vector2 dir = (hoverPos - rb.position).normalized;
+        float roty = 0;
+        if (dir.x > 0)
+            roty = 180;
+        transform.rotation = Quaternion.Euler(0, roty, 0);
+        rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
+    }
+
+    IEnumerator EndAttack()
+    {
+        
+        yield return new WaitForSeconds(1f);
+        attackGO.SetActive(false);
+        currentState = enemyState.hover;
+        StopCoroutine("EndAttack");
+    }
+
+    void StartAttack()
+    {
+        attackGO.SetActive(true);
+        StartCoroutine("EndAttack");
+    }
+
+    void AttackMovement()
+    {
+        SetHitPosition();
+        Vector2 dir = (hitPosition - rb.position).normalized;
+        float roty = 0;
+        if (dir.x > 0)
+            roty = 180;
+        transform.rotation = Quaternion.Euler(0, roty, 0);
+        rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
+        if (((Vector2)rb.position - hitPosition).magnitude < 0.2f)
+        {
+            currentState = enemyState.attacking;
+            StartAttack();
+        }
+    }
+
     private void FixedUpdate()
     {
         if (dead)
             return;
-        if (((Vector2)rb.position - hoverPos).magnitude < 0.05f)
-            SetHoverPos();
-        Vector2 dir = (hoverPos - rb.position).normalized;
+        switch (currentState)
+        {
+            case enemyState.hover:
+                {
+                    hoverMovement();
+                    break;
+                }
+            case enemyState.attackMove:
+                {
+                    AttackMovement();
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.transform.tag == "Wall")
+            SetSafeHoverPos();
+    }
+    private void OnDrawGizmos()
+    {
         if (currentState == enemyState.hover)
         {
-            rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(hoverPos, 1);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (dead)
-            return;
-        GroundSlicer tmpGS = GroundSlicer.Instance;
-        if (other.transform.tag == "Player")
+        if (currentState == enemyState.attackMove)
         {
-            if (tmpGS.CompareSlices(tmpGS.getSlices(playerPos.position.y), tmpGS.getSlices(this.transform.position.y)))
-            {
-                Playerator tmpP = other.gameObject.GetComponent<Playerator>();
-                currentAttack.dir = (other.transform.position - this.transform.position).normalized;
-                tmpP.TakeDamage(currentAttack);
-            }
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(hitPosition, 1);
         }
-        
-    }
-
-    private void OnCollisionStay2D(Collision2D other) {
-         if (other.transform.tag == "Wall")
-            SetHoverPos();
-    }
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(hoverPos, 1);
+        if (currentState == enemyState.attacking)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(transform.position, 1);
+        }
     }
 }
