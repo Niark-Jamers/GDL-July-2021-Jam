@@ -13,6 +13,7 @@ public class TopDownCharacterController : MonoBehaviour
     new Rigidbody2D rigidbody2D;
     public bool     dead = false;
 
+
     public bool freeMovements = false;
 
     // Start is called before the first frame update

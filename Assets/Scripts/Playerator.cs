@@ -20,15 +20,20 @@ public class Playerator : MonoBehaviour
 
 
     [Header("FIGHT")]
-    
+
     float hitStun;
     public float hitStunDepletionSpeed = 1;
 
     Rigidbody2D rb;
+    [HideInInspector]
+    public enum playerState { Move, attack, hitStun };
+    public playerState currentState = playerState.Move;
+    TopDownCharacterController tdc;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tdc = GetComponent<TopDownCharacterController>();
     }
 
 
@@ -48,11 +53,27 @@ public class Playerator : MonoBehaviour
         proteinFillBar.fillAmount = protein / maxProtein;
     }
 
+
+    void DoHitStun()
+    {
+        if (hitStun > 0)
+        {
+            currentState = playerState.hitStun;
+            tdc.freeMovements = true;
+            hitStun -= Time.deltaTime * hitStunDepletionSpeed;
+            if (hitStun <= 0)
+            {
+                currentState = playerState.Move;
+                tdc.freeMovements = false;
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         updateBars();
+        DoHitStun();
     }
 
-    
+
 }

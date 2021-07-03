@@ -70,11 +70,9 @@ public class EnemyController : MonoBehaviour
         // AudioManager.PlayOnShot(deathClip);
     }
     // Update is called once per frame
-    void Update()
+
+    void DoHitStun()
     {
-        healthFillBar.fillAmount = health / maxHealth;
-        if (dead)
-            return;
         if (hitStun > 0)
         {
             currentState = enemyState.hitStun;
@@ -82,6 +80,14 @@ public class EnemyController : MonoBehaviour
             if (hitStun <= 0)
                 currentState = enemyState.hover;
         }
+    }
+
+    void Update()
+    {
+        healthFillBar.fillAmount = health / maxHealth;
+        if (dead)
+            return;
+        DoHitStun();
     }
 
     void SetHoverPos()
