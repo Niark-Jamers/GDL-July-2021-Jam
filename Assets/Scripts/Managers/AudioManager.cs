@@ -10,6 +10,19 @@ public class AudioManager : MonoBehaviour
     public AudioMixer masterMixer;
     public AudioMixerSnapshot paused;
     public AudioMixerSnapshot unpaused;
+    public AudioSource sfxSource;
+
+    public static AudioManager instance;
+
+    public void Awake()
+    {
+        instance = this;
+    }
+
+    public static void PlaySFX(AudioClip clip, float volume = 1)
+    {
+        instance.sfxSource.PlayOneShot(clip, volume);
+    }
 
     // Start is called before the first frame update
     void Start()

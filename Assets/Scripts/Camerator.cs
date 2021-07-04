@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 // [ExecuteAlways]
 public class Camerator : MonoBehaviour
@@ -29,6 +30,8 @@ public class Camerator : MonoBehaviour
     float targetSize;
     float speed = 3f;
 
+    CinemachineFramingTransposer transposer;
+
     public float baseCamSize = 5;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class Camerator : MonoBehaviour
         ratio = Camera.main.aspect;
         targetSize = baseCamSize;
         rbGround = camGround.gameObject.GetComponent<Rigidbody2D>();
+        transposer = vCam.GetCinemachineComponent<CinemachineFramingTransposer>();
         // Debug.Log(ratio);
         setX();
         YStart = GetLowYAtStart();
@@ -90,10 +94,13 @@ public class Camerator : MonoBehaviour
         hit = Physics2D.RaycastAll(camPos, rayDir, 1000, mask);
         for (int i = 0; i < hit.Length; i++)
         {
-            //Debug.Log("ca touche : " + hit[i].transform.tag);
+//            Debug.Log("ca touche : " + hit[i].transform.tag);
             if (Vector2.Distance(camPos, hit[i].point) > 1)
                 targetSize = -hit[i].point.y;
         }
+
+        transposer.m_TrackedObjectOffset.y = 3 + targetSize / 3.0f - 1.0f;
+//        Debug.Log(transposer.m_TrackedObjectOffset.y);
         if (targetSize < baseCamSize)
             targetSize = baseCamSize;
         // Vector2 hypo = new Vector2(XEnd, YEnd) - new Vector2(XStart, YStart);

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    BoxCollider2D bc;
     Animator animator;
     public GameObject foodPrefab;
 
@@ -41,6 +42,8 @@ public class EnemyController : MonoBehaviour
     public GameObject bloodFX;
     public GameObject bloodDeath;
     public GameObject bloodSplat;
+    public AudioClip hitClip;
+    public AudioClip deathClip;
 
     public float range = 2;
     float baseRange;
@@ -58,13 +61,20 @@ public class EnemyController : MonoBehaviour
         playerPos = GameManager.Instance.playerPosition;
         attackGO.SetActive(false);
         baseHoverDist = hoverDistance;
+        bc = GetComponent<BoxCollider2D>();
         baseRange = range;
         SetHoverPos();
     }
 
+    Vector3 GetSpawnPos()
+    {
+        return transform.GetChild(0).transform.position;
+    }
+
     public void TakeDamage(Damage.Profile hit)
     {
-        var a = GameObject.Instantiate(bloodFX, transform.position, Quaternion.identity);
+        AudioManager.PlaySFX(hitClip);
+        var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
         hitStun += hit.hitStun;
@@ -73,7 +83,7 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            var b = GameObject.Instantiate(bloodDeath, transform.position, Quaternion.identity);
+            var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
             b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         }
     }
@@ -82,7 +92,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator SpawnFood(float i = 0)
     {
         yield return new WaitForSeconds(i);
-        GameObject.Instantiate(foodPrefab, transform.position, Quaternion.identity);
+        GameObject.Instantiate(foodPrefab, GetSpawnPos(), Quaternion.identity);
         yield break;
     }
 
@@ -93,11 +103,15 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        if (deathClip != null)
+            AudioManager.PlaySFX(deathClip);
+        
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
+        bc.isTrigger = true;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
-        GameObject.Instantiate(bloodSplat, transform.position, Quaternion.identity);
+        GameObject.Instantiate(bloodSplat, GetSpawnPos(), Quaternion.identity);
         
         if (animator != null)
             animator.SetTrigger("Death");

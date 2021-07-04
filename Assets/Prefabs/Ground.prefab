@@ -49,9 +49,9 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1, y: 1}
-  - {x: 201, y: 1}
-  - {x: 201, y: -51}
+  - {x: 401, y: 1}
+  - {x: 401, y: 1}
+  - {x: 401, y: -51}
   - {x: -1, y: -6}
   - {x: -1, y: 1}
   m_AdjacentStartPoint: {x: 0, y: 0}
@@ -272,8 +272,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 0, y: 0}
-  - {x: 200, y: 0}
-  - {x: 200, y: -50}
+  - {x: 400, y: 0}
+  - {x: 400, y: -50}
   - {x: 0, y: -5}
   - {x: 0, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
@@ -292,15 +292,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1fd412fb4828344906c6b5fd3d4230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killEc: {fileID: 1399943376}
   reset: 0
-  showChar: 0
-  TestList:
-  - testTransform: {fileID: 0}
-    testSpread: 3
-    testStorage: f9fffffffafffffffbffffff
-  - testTransform: {fileID: 0}
-    testSpread: 3
-    testStorage: f7fffffff8fffffff9ffffff
+  enemyParent: {fileID: 0}
+  testPlayer: {fileID: 0}
+  gUp: 0
+  gLeft: 0
   slicedGround:
   - 0
   - -0.5
