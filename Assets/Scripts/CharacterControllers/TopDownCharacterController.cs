@@ -12,6 +12,7 @@ public class TopDownCharacterController : MonoBehaviour
     public SpriteRenderer  StickManSprite;
     new Rigidbody2D rigidbody2D;
     public bool     dead = false;
+    public Vector2 movement;
 
 
     public bool freeMovements = false;
@@ -33,7 +34,7 @@ public class TopDownCharacterController : MonoBehaviour
         if (dead || freeMovements)
             return;
 
-        var movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         rigidbody2D.MovePosition(rigidbody2D.position + movement * speed * Time.fixedDeltaTime);
 

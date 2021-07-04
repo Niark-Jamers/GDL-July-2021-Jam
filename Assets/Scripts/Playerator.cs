@@ -37,8 +37,11 @@ public class Playerator : MonoBehaviour
     [Header("ANIMATION")]
 
     public Animator anim;
-    public GameObject punchHitBox;
-    public GameObject kickHitBox;
+    public GameObject rPunchHitBox;
+    public GameObject lPunchHitBox;
+    public GameObject rKickHitBox;
+    public GameObject lKickHitBox;
+    bool animFlipX = true;
 
     Rigidbody2D rb;
     [HideInInspector]
@@ -121,7 +124,11 @@ public class Playerator : MonoBehaviour
         DoGrow();
         powerMult = this.transform.localScale.x;
         spread = (int)(powerMult + 3);
-        
+
+        if (tdc.movement.magnitude > 0)
+        {
+            animFlipX = tdc.movement.x < 0;
+        }
         if (!isAttacking && Input.GetKeyDown(KeyCode.J))
         {
             StartCoroutine(Punch());
@@ -134,23 +141,25 @@ public class Playerator : MonoBehaviour
 
     IEnumerator Kick()
     {
+        GameObject hitBox = animFlipX ? lKickHitBox : rKickHitBox;
         anim.SetTrigger("Kick");
         isAttacking = true;
         yield return new WaitForSeconds(0.20f);
-        kickHitBox.SetActive(true);
+        hitBox.SetActive(true);
         yield return new WaitForSeconds(0.15f);
-        kickHitBox.SetActive(false);
+        hitBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         isAttacking = false;
     }
     IEnumerator Punch()
     {
+        GameObject hitBox = animFlipX ? lPunchHitBox : rPunchHitBox;
         anim.SetTrigger("Punch");
         isAttacking = true;
         yield return new WaitForSeconds(0.10f);
-        punchHitBox.SetActive(true);
+        hitBox.SetActive(true);
         yield return new WaitForSeconds(0.10f);
-        punchHitBox.SetActive(false);
+        hitBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         isAttacking = false;
     }
