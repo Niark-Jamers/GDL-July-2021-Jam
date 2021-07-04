@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Playerator : MonoBehaviour
 {
@@ -39,18 +40,21 @@ public class Playerator : MonoBehaviour
     public enum playerState { Move, attack, hitStun };
     public playerState currentState = playerState.Move;
     TopDownCharacterController tdc;
+    CinemachineImpulseSource impulseSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tdc = GetComponent<TopDownCharacterController>();
         targetSize = transform.localScale.x;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
 
 
     public void TakeDamage(Damage.Profile hit)
     {
+        impulseSource.GenerateImpulse(1);
         health -= hit.dmg;
         hitStun += hit.hitStun;
         if (hit.knockback > 0)
