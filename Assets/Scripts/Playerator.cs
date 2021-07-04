@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.UI;
 
 public class Playerator : MonoBehaviour
@@ -23,6 +20,10 @@ public class Playerator : MonoBehaviour
 
     float hitStun;
     public float hitStunDepletionSpeed = 1;
+
+    [Header("ANIMATION")]
+
+    public Animator anim;
 
     Rigidbody2D rb;
     [HideInInspector]
@@ -56,6 +57,7 @@ public class Playerator : MonoBehaviour
 
     void DoHitStun()
     {
+        anim.SetTrigger("Hurt");
         if (hitStun > 0)
         {
             currentState = playerState.hitStun;
@@ -73,6 +75,14 @@ public class Playerator : MonoBehaviour
     {
         updateBars();
         DoHitStun();
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            anim.SetTrigger("Punch");
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            anim.SetTrigger("Kick");
+        }
     }
 
 
