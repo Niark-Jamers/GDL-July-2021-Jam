@@ -80,7 +80,7 @@ public class Playerator : MonoBehaviour
 
     public void Grow(float i, float scale = 10000)
     {
-        if (scale < this.transform.localScale.x /2)
+        if (scale < this.transform.localScale.x / 2)
             i = i * growScaling;
         toGrow += i;
     }
@@ -92,7 +92,7 @@ public class Playerator : MonoBehaviour
 
     void DoGrow()
     {
-        
+
         growTrueTimer += Time.deltaTime;
         if (growTrueTimer > growdecayTimer && toGrow > 0)
         {
@@ -101,11 +101,13 @@ public class Playerator : MonoBehaviour
             protein--;
             if (protein < 0)
                 protein = 0;
-            float growPow = ( 1.01f * ( 1 + (protein/maxProtein) / 10));
-           // Debug.Log(growPow);
+            float growPow = (1.01f * (1 + (protein / maxProtein) / 10));
+
+            // Debug.Log(growPow);
             targetSize = targetSize * growPow;
             if (targetSize > maxSize)
-            targetSize = maxSize;
+                targetSize = maxSize;
+
         }
         float tmp = transform.localScale.x;
         tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
@@ -143,11 +145,11 @@ public class Playerator : MonoBehaviour
         {
             animFlipX = tdc.movement.x < 0;
         }
-        if (!isAttacking && Input.GetKeyDown(KeyCode.J))
+        if (!isAttacking && (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0)))
         {
             StartCoroutine(Punch());
         }
-        if (!isAttacking && Input.GetKeyDown(KeyCode.K))
+        if (!isAttacking && (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1)))
         {
             StartCoroutine(Kick());
         }
@@ -158,9 +160,9 @@ public class Playerator : MonoBehaviour
         GameObject hitBox = animFlipX ? lKickHitBox : rKickHitBox;
         anim.SetTrigger("Kick");
         isAttacking = true;
-        yield return new WaitForSeconds(0.20f);
-        hitBox.SetActive(true);
         yield return new WaitForSeconds(0.15f);
+        hitBox.SetActive(true);
+        yield return new WaitForSeconds(0.20f);
         hitBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         isAttacking = false;
@@ -172,13 +174,14 @@ public class Playerator : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(0.10f);
         hitBox.SetActive(true);
-        yield return new WaitForSeconds(0.10f);
+        yield return new WaitForSeconds(0.15f);
         hitBox.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         isAttacking = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.tag == "Proteine")
         {
             protein += other.gameObject.GetComponent<Proteine>().power;

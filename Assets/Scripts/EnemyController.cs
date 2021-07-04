@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class EnemyController : MonoBehaviour
 
     public float attackWindUp = 1f;
 
+    CinemachineImpulseSource impulseSource;
 
     void Start()
     {
@@ -66,6 +68,7 @@ public class EnemyController : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         baseRange = range;
         SetHoverPos();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     Vector3 GetSpawnPos()
@@ -75,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
-        AudioManager.PlaySFX(hitClip);
+        impulseSource.GenerateImpulse(1);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
@@ -84,12 +87,15 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
         if (health <= 0)
         {
+            if (deathClip != null)
+                AudioManager.PlaySFX(deathClip);
             Die();
             var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
             b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         }
+        else
+            AudioManager.PlaySFX(hitClip);
     }
-
 
     IEnumerator SpawnFood(float i = 0)
     {
@@ -106,9 +112,6 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
-        if (deathClip != null)
-            AudioManager.PlaySFX(deathClip);
-        
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
         bc.isTrigger = true;
