@@ -57,7 +57,7 @@ MonoBehaviour:
   - {fileID: 7463993758147156744}
   - {fileID: 7463993757068935177}
   - {fileID: 7463993758085730051}
-  EnemyHolder: {fileID: 0}
+  EnemyHolder: {fileID: 7890581671243776768}
   vCam: {fileID: 0}
   MaxEnemyNumber: 5
   minSpawnTimer: 3
@@ -464,6 +464,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157a21094d22b99408891f88850d3cd2, type: 3}
+--- !u!1 &7890581671243776768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6605368866720382150, guid: 157a21094d22b99408891f88850d3cd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3902933975357423558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7675812419992856174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6678828900716370344, guid: 157a21094d22b99408891f88850d3cd2,
