@@ -34,6 +34,8 @@ public class EnemyController : MonoBehaviour
     float hitStun;
     [Header("Attack")]
     public GameObject attackGO;
+    public GameObject bloodFX;
+    public GameObject bloodDeath;
 
     public float range = 2;
     public float hitStunDepletionSpeed = 1;
@@ -54,12 +56,18 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        var a = GameObject.Instantiate(bloodFX, transform.position, Quaternion.identity);
+        a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
         hitStun += hit.hitStun;
         if (hit.knockback > 0)
             rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
         if (health <= 0)
+        {
             Die();
+            var b = GameObject.Instantiate(bloodDeath, transform.position, Quaternion.identity);
+            b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
+        }
     }
 
     public void Killme(float i = 0)
@@ -70,6 +78,8 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
+        transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
 
         if (animator != null)

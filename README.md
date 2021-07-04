@@ -3,3 +3,5 @@
 
 https://rmw-restaff.itch.io/restaff-december-2012
 https://graphscriptdev.itch.io/tree-pixel-art
+https://negative-inspiration.itch.io/negatives-ever-growing-monster-pack
+https://jasontomlee.itch.io/blood-fx
