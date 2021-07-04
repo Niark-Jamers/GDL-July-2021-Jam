@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 315430952}
     - target: {fileID: 1474682000, guid: 36b4b3f24a33f474d930aa14f583aedc, type: 3}
       propertyPath: nextLevelScene
-      value: Gurren Lagann  Antoine
+      value: Transition2
       objectReference: {fileID: 0}
     - target: {fileID: 5256678733578724956, guid: 36b4b3f24a33f474d930aa14f583aedc,
         type: 3}

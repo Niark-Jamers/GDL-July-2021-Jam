@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 1955a1011081d574aa107e4f69a42cf8
+  - enabled: 1
     path: Assets/Scenes/LEVEL ! mieux.unity
     guid: c84b11db578b55b4faf068b093ca7631
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: 1955a1011081d574aa107e4f69a42cf8
+    path: Assets/Scenes/Transition2.unity
+    guid: 3c193a3b5711f8444805b9678856912a
   - enabled: 1
     path: Assets/Scenes/Gurren Lagann  Antoine.unity
     guid: e6c8a858fcdd6ac45a29530802d18b3a
