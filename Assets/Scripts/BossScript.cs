@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossScript : MonoBehaviour
 {
+    public string nextLevelScene;
 
     Rigidbody2D rb;
     BoxCollider2D bc;
@@ -96,6 +98,13 @@ public class BossScript : MonoBehaviour
     public void Killme(float i = 0)
     {
         Destroy(this.gameObject, i);
+        StartCoroutine(LoadNextLevel());
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(nextLevelScene);
     }
 
     public void Die()
