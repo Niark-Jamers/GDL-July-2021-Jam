@@ -28,6 +28,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.898863
       objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973108, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.9327164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973108, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.7419357
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973108, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.77315617
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973108, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.9350486
+      objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314341, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_RootOrder
@@ -36,12 +56,12 @@ PrefabInstance:
     - target: {fileID: 2212518456967314341, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.41
+      value: 11.937822
       objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314341, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.46
+      value: -2.6114073
       objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314341, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
@@ -83,10 +103,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2212518456967314342, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.987585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456967314342, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.651706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456967314342, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.10057545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456967314342, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.21915936
+      objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314363, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_Name
-      value: enemy 5
+      value: Kdosaurus rex
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d972eb463c87149a96dc61193e378a, type: 3}

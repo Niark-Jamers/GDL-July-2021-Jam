@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2267386259955868579, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.0607805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386259955868579, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.4351435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386259955868579, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.1122432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386259955868579, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.5878887
+      objectReference: {fileID: 0}
     - target: {fileID: 2267386260071134511, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -46,12 +66,32 @@ PrefabInstance:
     - target: {fileID: 2267386260508828204, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: m_Name
-      value: enemy 8
+      value: La plante
       objectReference: {fileID: 0}
     - target: {fileID: 2267386260508828205, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386260508828209, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.181546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386260508828209, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.404846
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386260508828209, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10220289
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267386260508828209, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.09572923
       objectReference: {fileID: 0}
     - target: {fileID: 2267386260508828209, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
@@ -71,12 +111,12 @@ PrefabInstance:
     - target: {fileID: 2267386260508828210, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.76
+      value: 11.622345
       objectReference: {fileID: 0}
     - target: {fileID: 2267386260508828210, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.46
+      value: -2.2210376
       objectReference: {fileID: 0}
     - target: {fileID: 2267386260508828210, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}

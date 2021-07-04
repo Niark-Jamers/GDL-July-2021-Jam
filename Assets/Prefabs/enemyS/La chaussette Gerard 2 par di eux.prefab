@@ -33,6 +33,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.574
       objectReference: {fileID: 0}
+    - target: {fileID: 1706323420817111000, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.5410204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323420817111000, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.9026833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323420817111000, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0354285
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323420817111000, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8360019
+      objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315785, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
       propertyPath: m_RootOrder
@@ -41,12 +61,12 @@ PrefabInstance:
     - target: {fileID: 1706323421371315785, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.56
+      value: 11.942435
       objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315785, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.46
+      value: -2.2347379
       objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315785, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
@@ -88,10 +108,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1706323421371315786, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.342389
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323421371315786, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.200832
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323421371315786, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.019203663
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323421371315786, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.32981086
+      objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315799, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
       propertyPath: m_Name
-      value: enemy 3
+      value: La chaussette Gerard 2 par di eux
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10bf0745a26f86840a93858eae914d3d, type: 3}

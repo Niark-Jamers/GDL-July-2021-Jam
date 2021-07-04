@@ -247,5 +247,8 @@ public class EnemyController : MonoBehaviour
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(transform.position, 1);
         }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position + (Vector3)Vector2.right * range, .3f);
+        Gizmos.DrawSphere(transform.position + (Vector3)Vector2.left * range, .3f);
     }
 }
