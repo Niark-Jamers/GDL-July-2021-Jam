@@ -6,3 +6,4 @@ https://graphscriptdev.itch.io/tree-pixel-art
 https://negative-inspiration.itch.io/negatives-ever-growing-monster-pack
 https://jasontomlee.itch.io/blood-fx
 https://opengameart.org/content/blood-splats
+https://helianthus-games.itch.io/pixel-art-planets
