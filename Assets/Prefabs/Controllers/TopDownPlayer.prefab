@@ -194,7 +194,7 @@ MonoBehaviour:
   - {fileID: 2053900535}
   - {fileID: 1300525176}
   m_Bounds:
-    m_Center: {x: -0.6300006, y: -0.49002504, z: 0}
+    m_Center: {x: -0.6300006, y: -0.49002552, z: 0}
     m_Extent: {x: 3.3400002, y: 3.4670453, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6345c260b64faaf4384b510af518a31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   deathClip: {fileID: 0}
   StickManSprite: {fileID: 451629843}
   dead: 0
