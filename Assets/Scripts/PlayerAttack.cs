@@ -17,10 +17,20 @@ public class PlayerAttack : MonoBehaviour
             EnemyController tmpP = other.gameObject.GetComponent<EnemyController>();
             if (tmpGS.CompareSlices(tmpGS.getSlices(other.transform.position.y, tmpP.spread), tmpGS.getSlices(pa.transform.position.y, pa.spread)))
             {
-                attack.dmg = tmp * pa.powerMult;
-                attack.dir = (other.transform.position - pa.transform.position).normalized;
-                tmpP.TakeDamage(attack);
-                attack.dmg = tmp;
+                if (gameObject.tag == "Stomp" && other.transform.localScale.x < transform.localScale.x / 3)
+                {
+                    attack.dmg = tmp * pa.powerMult;
+                    attack.dir = (other.transform.position - pa.transform.position).normalized;
+                    tmpP.TakeDamage(attack);
+                    attack.dmg = tmp;
+                }
+                else
+                {
+                    attack.dmg = tmp * pa.powerMult;
+                    attack.dir = (other.transform.position - pa.transform.position).normalized;
+                    tmpP.TakeDamage(attack);
+                    attack.dmg = tmp;
+                }
             }
         }
     }

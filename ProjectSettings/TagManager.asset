@@ -10,6 +10,7 @@ TagManager:
   - EnemyAttack
   - Food
   - Proteine
+  - Stomp
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - EnemyAttack
   - Player
   - PlayerAttack
-  - 
+  - Stomp
   - 
   - 
   - 
