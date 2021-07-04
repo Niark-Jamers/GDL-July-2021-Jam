@@ -23,12 +23,13 @@ public class EnemySpawner : MonoBehaviour
     float[] powerTable;
     public Playerator playerScript;
     // Start is called before the first frame update
-    
+    GroundSlicer gc;
     void Start()
     {
         ratio = Camera.main.aspect;
         spawnNumber = spawnHolder.Length;
         currentSpawnTimer = Random.Range(minSpawnTimer, maxSpawnTimer);
+        gc = FindObjectOfType<GroundSlicer>();
         FillPowerTable();
     }
 
@@ -52,7 +53,10 @@ public class EnemySpawner : MonoBehaviour
                 side = -1;
             else
                 side = 1;
-            spawnHolder[i].transform.position = (Vector2)vCam.transform.position + new Vector2(side * vCam.m_Lens.OrthographicSize * ratio + 5 * side, i%2 == 0? -vCam.m_Lens.OrthographicSize / 4 : -vCam.m_Lens.OrthographicSize / 1.5f);
+        Vector2 tmp = (Vector2)vCam.transform.position + new Vector2(side * vCam.m_Lens.OrthographicSize * ratio + 5 * side, i%2 == 0? -vCam.m_Lens.OrthographicSize / 4 : -vCam.m_Lens.OrthographicSize / 1.5f);
+        tmp.x = (tmp.x < gc.gLeft) ? gc.gLeft: tmp.x;
+        tmp.y = (tmp.y > gc.gUp) ? gc.gUp: tmp.y;
+            spawnHolder[i].transform.position = tmp;
         }
     }
 

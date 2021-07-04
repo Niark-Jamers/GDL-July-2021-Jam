@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 7781912807537176922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.23, y: -4.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.56108004, y: 0.56108004, z: 0.56108004}
   m_Children:
   - {fileID: 7781912808174528089}
   - {fileID: 7781912808055074987}
@@ -343,12 +343,12 @@ MonoBehaviour:
     type: 3}
   Level: 1
   spread: 3
-  maxHealth: 100
-  health: 100
+  maxHealth: 80
+  health: 80
   healthFillBar: {fileID: 7781912807978561285}
   dead: 0
   speed: 4
-  hoverDistance: 10
+  hoverDistance: 5
   hoverVariance: 1
   currentState: 0
   attackGO: {fileID: 7781912808055074986}
@@ -359,7 +359,7 @@ MonoBehaviour:
     type: 3}
   hitClip: {fileID: 8300000, guid: 11cbb98b49da601469f5d04862ac5119, type: 3}
   deathClip: {fileID: 0}
-  range: 2.88
+  range: 1.68
   hitStunDepletionSpeed: 5
   attackModeTimer: 5
   attackTrueTimer: 0

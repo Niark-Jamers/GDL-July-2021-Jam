@@ -30,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 3592004092438363216, guid: a67178598fb6ce44aa1c1bcb397c7d63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.1096325
+      value: 44.59
       objectReference: {fileID: 0}
     - target: {fileID: 3592004092438363216, guid: a67178598fb6ce44aa1c1bcb397c7d63,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.904655
+      value: -11.86
       objectReference: {fileID: 0}
     - target: {fileID: 3592004092438363216, guid: a67178598fb6ce44aa1c1bcb397c7d63,
         type: 3}
@@ -99,8 +99,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3592004092438363220, guid: a67178598fb6ce44aa1c1bcb397c7d63,
         type: 3}
+      propertyPath: Level
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592004092438363220, guid: a67178598fb6ce44aa1c1bcb397c7d63,
+        type: 3}
       propertyPath: range
       value: 3.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592004092438363220, guid: a67178598fb6ce44aa1c1bcb397c7d63,
+        type: 3}
+      propertyPath: health
+      value: 260
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592004092438363220, guid: a67178598fb6ce44aa1c1bcb397c7d63,
+        type: 3}
+      propertyPath: maxHealth
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 3592004092875467597, guid: a67178598fb6ce44aa1c1bcb397c7d63,
         type: 3}

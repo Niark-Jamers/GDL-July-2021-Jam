@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    BoxCollider2D bc;
     Animator animator;
     public GameObject foodPrefab;
 
@@ -60,6 +61,7 @@ public class EnemyController : MonoBehaviour
         playerPos = GameManager.Instance.playerPosition;
         attackGO.SetActive(false);
         baseHoverDist = hoverDistance;
+        bc = GetComponent<BoxCollider2D>();
         baseRange = range;
         SetHoverPos();
     }
@@ -103,8 +105,10 @@ public class EnemyController : MonoBehaviour
     {
         if (deathClip != null)
             AudioManager.PlaySFX(deathClip);
+        
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
+        bc.isTrigger = true;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
         GameObject.Instantiate(bloodSplat, GetSpawnPos(), Quaternion.identity);

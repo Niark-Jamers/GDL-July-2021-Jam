@@ -94,13 +94,13 @@ public class Camerator : MonoBehaviour
         hit = Physics2D.RaycastAll(camPos, rayDir, 1000, mask);
         for (int i = 0; i < hit.Length; i++)
         {
-            Debug.Log("ca touche : " + hit[i].transform.tag);
+//            Debug.Log("ca touche : " + hit[i].transform.tag);
             if (Vector2.Distance(camPos, hit[i].point) > 1)
                 targetSize = -hit[i].point.y;
         }
 
         transposer.m_TrackedObjectOffset.y = 3 + targetSize / 3.0f - 1.0f;
-        Debug.Log(transposer.m_TrackedObjectOffset.y);
+//        Debug.Log(transposer.m_TrackedObjectOffset.y);
         if (targetSize < baseCamSize)
             targetSize = baseCamSize;
         // Vector2 hypo = new Vector2(XEnd, YEnd) - new Vector2(XStart, YStart);

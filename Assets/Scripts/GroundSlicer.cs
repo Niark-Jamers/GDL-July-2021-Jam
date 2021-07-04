@@ -15,10 +15,11 @@ public class GroundSlicer : MonoBehaviour
 
     public GameObject enemyParent;
     public Transform testPlayer;
-
-    float gUp;
+    [HideInInspector]
+    public float gUp;
     float gDown;
-    float gLeft;
+    [HideInInspector]
+    public float gLeft;
     float gRight;
 
     [HideInInspector]
@@ -151,6 +152,8 @@ public class GroundSlicer : MonoBehaviour
         }
         ec.SetPoints(tmp.ToList());
         killEc.SetPoints(tmpKill.ToList());
+        SetBounds();
+        SliceGround();
     }
 
     private void OnDrawGizmos()
