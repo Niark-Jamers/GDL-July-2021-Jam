@@ -165,13 +165,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315789, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
+      propertyPath: speed
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706323421371315789, guid: 10bf0745a26f86840a93858eae914d3d,
+        type: 3}
       propertyPath: health
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315789, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}
       propertyPath: spread
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1706323421371315789, guid: 10bf0745a26f86840a93858eae914d3d,
         type: 3}

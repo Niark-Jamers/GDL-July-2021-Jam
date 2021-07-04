@@ -27,10 +27,12 @@ public class EnemyController : MonoBehaviour
 
     [Header("Movement")]
     public float speed = 6f;
+    float baseSpeed;
     public float hoverDistance = 10f;
     float baseHoverDist;
     public float hoverVariance = 1f;
     Transform playerPos;
+    float maxSize = 50;
 
     public enemyState currentState = enemyState.hover;
     Vector2 hoverPos;
@@ -98,7 +100,8 @@ public class EnemyController : MonoBehaviour
     IEnumerator SpawnFood(float i = 0)
     {
         yield return new WaitForSeconds(i);
-        GameObject.Instantiate(foodPrefab, GetSpawnPos(), Quaternion.identity);
+        GameObject tmp = GameObject.Instantiate(foodPrefab, GetSpawnPos(), Quaternion.identity);
+        tmp.GetComponent<Food>().scale = Level;
         yield break;
     }
 
@@ -118,7 +121,7 @@ public class EnemyController : MonoBehaviour
         
         if (animator != null)
             animator.SetTrigger("Death");
-        StartCoroutine("SpawnFood", 1.5f);
+        StartCoroutine("SpawnFood", 1f);
         Killme(2);
         // AudioManager.PlayOnShot(deathClip);
     }
@@ -140,6 +143,8 @@ public class EnemyController : MonoBehaviour
         hoverDistance = baseHoverDist * playerPos.localScale.x;
         range = baseRange + playerPos.localScale.x / 2;
     }
+
+
 
     void Update()
     {

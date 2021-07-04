@@ -5,4 +5,5 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     public float power = 2;
+    public float scale = 1;
 }

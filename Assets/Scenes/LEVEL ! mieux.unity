@@ -354,14 +354,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1474682000, guid: 36b4b3f24a33f474d930aa14f583aedc, type: 3}
-      propertyPath: health
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474682000, guid: 36b4b3f24a33f474d930aa14f583aedc, type: 3}
-      propertyPath: maxHealth
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474682000, guid: 36b4b3f24a33f474d930aa14f583aedc, type: 3}
       propertyPath: BossHoverPos
       value: 
       objectReference: {fileID: 315430952}
@@ -477,6 +469,23 @@ PrefabInstance:
       propertyPath: MaxEnemyNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7463993756608544206, guid: 869889bef90d30c499cccd1b77d7c2d0,
+        type: 3}
+      propertyPath: enemyPrefab.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463993756608544206, guid: 869889bef90d30c499cccd1b77d7c2d0,
+        type: 3}
+      propertyPath: enemyPrefab.Array.data[8]
+      value: 
+      objectReference: {fileID: 2267386260508828204, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
+        type: 3}
+    - target: {fileID: 7463993756608544206, guid: 869889bef90d30c499cccd1b77d7c2d0,
+        type: 3}
+      propertyPath: enemyPrefab.Array.data[9]
+      value: 
+      objectReference: {fileID: 3592004092438363214, guid: a67178598fb6ce44aa1c1bcb397c7d63,
+        type: 3}
     - target: {fileID: 7463993756608544208, guid: 869889bef90d30c499cccd1b77d7c2d0,
         type: 3}
       propertyPath: m_Name
@@ -622,11 +631,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopDownPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 8829212070977426005, guid: 0c687718c27f58b4e96aef301301769c,
-        type: 3}
-      propertyPath: pa
-      value: 
-      objectReference: {fileID: 2143325532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
 --- !u!20 &875949053 stripped
