@@ -622,6 +622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopDownPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8829212070977426005, guid: 0c687718c27f58b4e96aef301301769c,
+        type: 3}
+      propertyPath: pa
+      value: 
+      objectReference: {fileID: 2143325532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
 --- !u!20 &875949053 stripped
