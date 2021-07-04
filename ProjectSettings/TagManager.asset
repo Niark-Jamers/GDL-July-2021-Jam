@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - PlayerAttack
   - EnemyAttack
+  - Food
+  - Proteine
   layers:
   - Default
   - TransparentFX

@@ -343,7 +343,7 @@ MonoBehaviour:
   health: 100
   healthFillBar: {fileID: 7781912807978561285}
   dead: 0
-  speed: 6
+  speed: 4
   hoverDistance: 10
   hoverVariance: 1
   currentState: 0

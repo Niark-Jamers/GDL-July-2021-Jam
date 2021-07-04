@@ -53,6 +53,10 @@ public class Playerator : MonoBehaviour
         proteinFillBar.fillAmount = protein / maxProtein;
     }
 
+    void Grow(int i)
+    {
+
+    }
 
     void DoHitStun()
     {
@@ -75,5 +79,11 @@ public class Playerator : MonoBehaviour
         DoHitStun();
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Proteine")
+        {
+            protein += other.gameObject.GetComponent<Proteine>().power;
+            Destroy(other.gameObject);
+        }
+    }
 }
