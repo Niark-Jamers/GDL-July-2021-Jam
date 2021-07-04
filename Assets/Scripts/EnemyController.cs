@@ -105,6 +105,7 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(i);
         GameObject tmp = GameObject.Instantiate(foodPrefab, GetSpawnPos(), Quaternion.identity);
+        tmp.transform.localScale = tmp.transform.localScale * Level;
         tmp.GetComponent<Food>().scale = Level;
         yield break;
     }

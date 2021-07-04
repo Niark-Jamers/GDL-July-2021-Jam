@@ -78,16 +78,18 @@ public class BossScript : MonoBehaviour
     public void TakeDamage(Damage.Profile hit)
     {
         AudioManager.PlaySFX(hitClip);
-        
+
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         a.transform.localScale = a.transform.localScale * level;
         health -= hit.dmg;
         hitStun += hit.hitStun;
         if (hit.knockback > 0)
-            rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
+            rb.AddForce(hit.dir * (hit.knockback / 10), ForceMode2D.Impulse);
         if (health <= 0)
         {
+            if (isfinale)
+                StartCoroutine("SuperDie");
             Die();
             var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
             b.transform.localScale = b.transform.localScale * level;
@@ -105,6 +107,24 @@ public class BossScript : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(nextLevelScene);
+    }
+
+    IEnumerator SuperDie()
+    {
+        float ran = 50;
+        for (int i = 0; i < 20; i++)
+        {
+
+
+            AudioManager.PlaySFX(hitClip);
+            var a = GameObject.Instantiate(bloodSplat, GetSpawnPos() + new Vector3(Random.Range(-ran, ran), Random.Range(-ran, ran), Random.Range(-ran, ran)), Quaternion.identity);
+            var b = GameObject.Instantiate(bloodDeath, GetSpawnPos() + new Vector3(Random.Range(-ran, ran), Random.Range(-ran, ran), Random.Range(-ran, ran)), Quaternion.identity);
+
+            a.transform.localScale = a.transform.localScale * level;
+            b.transform.localScale = b.transform.localScale * level;
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield break;
     }
 
     public void Die()
@@ -210,7 +230,7 @@ public class BossScript : MonoBehaviour
             roty = 180;
         transform.rotation = Quaternion.Euler(0, roty, 0);
         rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
-        if (((Vector2)rb.position - hitPosition).magnitude < 0.2f)
+        if (((Vector2)rb.position - hitPosition).magnitude < 1f)
         {
             currentState = enemyState.attacking;
             StartAttack();
