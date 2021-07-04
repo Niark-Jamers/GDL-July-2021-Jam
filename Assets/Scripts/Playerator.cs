@@ -24,6 +24,7 @@ public class Playerator : MonoBehaviour
     public float hitStunDepletionSpeed = 1;
     public float powerMult;
     bool isAttacking;
+    public AudioClip hurt;
 
     [Header("GROW")]
     public float growScaling = 0.1f;
@@ -60,6 +61,7 @@ public class Playerator : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        AudioManager.PlaySFX(hurt);
         impulseSource.GenerateImpulse(1);
         health -= hit.dmg;
         hitStun += hit.hitStun;
