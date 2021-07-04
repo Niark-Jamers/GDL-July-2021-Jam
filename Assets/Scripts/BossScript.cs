@@ -108,7 +108,6 @@ public class BossScript : MonoBehaviour
 
         if (animator != null)
             animator.SetTrigger("Death");
-        StartCoroutine("SpawnFood", 1.5f);
         Killme(2);
         // AudioManager.PlayOnShot(deathClip);
     }

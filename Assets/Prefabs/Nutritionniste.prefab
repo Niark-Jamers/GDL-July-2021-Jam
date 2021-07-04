@@ -33,7 +33,7 @@ RectTransform:
   - {fileID: 689118850}
   - {fileID: 872385198}
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 578271066}
   - component: {fileID: 578271065}
   - component: {fileID: 578271064}
-  - component: {fileID: 578271063}
+  - component: {fileID: 578271062}
   m_Layer: 8
   m_Name: enemyAttack (1)
   m_TagString: EnemyAttack
@@ -129,10 +129,10 @@ Transform:
   m_GameObject: {fileID: 578271061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.739994, y: 12.07, z: 312.04932}
-  m_LocalScale: {x: 4.4963903, y: 19.278273, z: 4.4963903}
+  m_LocalScale: {x: 9.948264, y: 19.278273, z: 4.4963903}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &578271065
 BoxCollider2D:
@@ -181,7 +181,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &578271063
+--- !u!114 &578271062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,12 +190,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 578271061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c411c53fb298c4f8604d10075f0bb6, type: 3}
+  m_Script: {fileID: 11500000, guid: d720b63148235cf41a6de52239fe0fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eC: {fileID: 0}
+  eC: {fileID: 1474682000}
   attack:
-    dmg: 30
+    dmg: 50
     hitStun: 2
     knockback: 15
     dir: {x: 0, y: 0}
@@ -303,7 +303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &817288426
 MonoBehaviour:
@@ -615,7 +615,7 @@ Transform:
   m_LocalScale: {x: 0.6513176, y: 0.6513176, z: 0.6513176}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1182514843
 SpriteRenderer:
@@ -679,8 +679,8 @@ GameObject:
   m_Component:
   - component: {fileID: 821049148378878219}
   - component: {fileID: 3581711509573692002}
-  m_Layer: 0
-  m_Name: nutrinioniste
+  m_Layer: 12
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3581711509573692002
 SpriteRenderer:
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 1474682000}
   m_Layer: 7
   m_Name: Nutritionniste
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,15 +780,15 @@ Transform:
   m_GameObject: {fileID: 5256678733578724956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.97, y: 4.31, z: 0}
-  m_LocalScale: {x: 2.0326505, y: 2.0326505, z: 2.0326505}
+  m_LocalScale: {x: 1.602501, y: 1.602501, z: 1.602501}
   m_Children:
+  - {fileID: 821049148378878219}
   - {fileID: 5256678733779524036}
   - {fileID: 5256678734736862895}
   - {fileID: 1182514842}
   - {fileID: 817288425}
   - {fileID: 578271066}
   - {fileID: 355794791}
-  - {fileID: 821049148378878219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -800,19 +800,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5256678733578724956}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1474682004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.845709, y: -11.713898}
+  m_Offset: {x: -0.52274704, y: 23.847845}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -837,7 +837,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 22.70337, y: 48.927795}
+  m_Size: {x: 25.273067, y: 32.874928}
   m_EdgeRadius: 0
 --- !u!114 &1474682000
 MonoBehaviour:
@@ -852,12 +852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighting: 0
-  spread: 15
-  maxHealth: 2000
-  health: 2000
+  spread: 60
+  maxHealth: 5000
+  health: 5000
   healthFillBar: {fileID: 872385199}
   dead: 0
-  speed: 3
+  speed: 5
   hoverDistance: 10
   hoverVariance: 5
   currentState: 0
@@ -870,11 +870,11 @@ MonoBehaviour:
     type: 3}
   hitClip: {fileID: 8300000, guid: 11cbb98b49da601469f5d04862ac5119, type: 3}
   deathClip: {fileID: 0}
-  range: 2.06
+  range: 22.01
   hitStunDepletionSpeed: 1
   attackModeTimer: 5
   attackTrueTimer: 0
-  attackWindUp: 1
+  attackWindUp: 2
 --- !u!1 &5256678733779524035
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5256678733779524037
 MonoBehaviour:
@@ -1013,7 +1013,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5256678733578724958}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5256678734736862896
 MonoBehaviour:

@@ -56,6 +56,7 @@ public class EnemyController : MonoBehaviour
 
     public float attackWindUp = 1f;
 
+    bool dieded = false;
     CinemachineImpulseSource impulseSource;
 
     void Start()
@@ -78,6 +79,8 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        if (dieded == true)
+            return;
         impulseSource.GenerateImpulse(1);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
@@ -112,6 +115,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        dieded = true;
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
         bc.isTrigger = true;
