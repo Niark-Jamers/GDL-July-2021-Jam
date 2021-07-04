@@ -342,7 +342,7 @@ MonoBehaviour:
   foodPrefab: {fileID: 9076704586311900447, guid: a69911175af2380428ff4b6b4588ab75,
     type: 3}
   Level: 1
-  spread: 3
+  spread: 5
   maxHealth: 80
   health: 80
   healthFillBar: {fileID: 7781912807978561285}

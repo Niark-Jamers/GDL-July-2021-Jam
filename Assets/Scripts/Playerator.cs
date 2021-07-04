@@ -33,6 +33,9 @@ public class Playerator : MonoBehaviour
     float toGrow;
     float targetSize;
 
+    float maxSize = 50;
+    float baseSpeed;
+
     public int spread;
     [Header("ANIMATION")]
 
@@ -56,6 +59,7 @@ public class Playerator : MonoBehaviour
         tdc = GetComponent<TopDownCharacterController>();
         targetSize = transform.localScale.x;
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        baseSpeed = tdc.speed;
     }
 
     public void TakeDamage(Damage.Profile hit)
@@ -81,6 +85,11 @@ public class Playerator : MonoBehaviour
         toGrow += i;
     }
 
+    void DoSpeed()
+    {
+        tdc.speed = baseSpeed * (1 + (transform.localScale.x / maxSize) * 2);
+    }
+
     void DoGrow()
     {
         
@@ -95,9 +104,13 @@ public class Playerator : MonoBehaviour
             float growPow = ( 1.01f * ( 1 + (protein/maxProtein) / 10));
            // Debug.Log(growPow);
             targetSize = targetSize * growPow;
+            if (targetSize > maxSize)
+            targetSize = maxSize;
         }
         float tmp = transform.localScale.x;
         tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
+        if (tmp > maxSize)
+            tmp = maxSize;
         transform.localScale = new Vector3(tmp, tmp, tmp);
     }
 
@@ -122,6 +135,7 @@ public class Playerator : MonoBehaviour
         UpdateBars();
         DoHitStun();
         DoGrow();
+        DoSpeed();
         powerMult = this.transform.localScale.x;
         spread = (int)(powerMult + 3);
 
@@ -174,7 +188,7 @@ public class Playerator : MonoBehaviour
         }
         if (other.tag == "Food")
         {
-            Grow(other.gameObject.GetComponent<Food>().power);
+            Grow(other.gameObject.GetComponent<Food>().power, other.gameObject.GetComponent<Food>().scale);
             health += 10;
             Destroy(other.gameObject);
         }
