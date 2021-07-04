@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Collections;
 
 public class Playerator : MonoBehaviour
 {
@@ -22,18 +23,22 @@ public class Playerator : MonoBehaviour
     float hitStun;
     public float hitStunDepletionSpeed = 1;
     public float powerMult;
+    bool isAttacking;
 
     [Header("GROW")]
     public float growScaling = 0.1f;
     public float growSpeed = 2;
     float growTrueTimer = 0;
-    float growdecayTimer = 1;
+    float growdecayTimer = 0.5f;
     float toGrow;
     float targetSize;
 
+    public int spread;
     [Header("ANIMATION")]
 
     public Animator anim;
+    public GameObject punchHitBox;
+    public GameObject kickHitBox;
 
     Rigidbody2D rb;
     [HideInInspector]
@@ -49,8 +54,6 @@ public class Playerator : MonoBehaviour
         targetSize = transform.localScale.x;
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-
-
 
     public void TakeDamage(Damage.Profile hit)
     {
@@ -68,10 +71,10 @@ public class Playerator : MonoBehaviour
         proteinFillBar.fillAmount = protein / maxProtein;
     }
 
-    void Grow(float i, float scale)
+    public void Grow(float i, float scale = 10000)
     {
         if (scale < this.transform.localScale.x /2)
-            i = i / growScaling;
+            i = i * growScaling;
         toGrow += i;
     }
 
@@ -84,7 +87,11 @@ public class Playerator : MonoBehaviour
             growTrueTimer = 0;
             toGrow--;
             protein--;
-            targetSize = targetSize * ( 1.02f * ( 1 + protein/100));
+            if (protein < 0)
+                protein = 0;
+            float growPow = ( 1.01f * ( 1 + (protein/maxProtein) / 10));
+           // Debug.Log(growPow);
+            targetSize = targetSize * growPow;
         }
         float tmp = transform.localScale.x;
         tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
@@ -93,9 +100,9 @@ public class Playerator : MonoBehaviour
 
     void DoHitStun()
     {
-        anim.SetTrigger("Hurt");
         if (hitStun > 0)
         {
+            anim.SetTrigger("Hurt");
             currentState = playerState.hitStun;
             tdc.freeMovements = true;
             hitStun -= Time.deltaTime * hitStunDepletionSpeed;
@@ -106,27 +113,59 @@ public class Playerator : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         UpdateBars();
         DoHitStun();
         DoGrow();
         powerMult = this.transform.localScale.x;
-        if (Input.GetKeyDown(KeyCode.J))
+        spread = (int)(powerMult + 3);
+        
+        if (!isAttacking && Input.GetKeyDown(KeyCode.J))
         {
-            anim.SetTrigger("Punch");
+            StartCoroutine(Punch());
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!isAttacking && Input.GetKeyDown(KeyCode.K))
         {
-            anim.SetTrigger("Kick");
+            StartCoroutine(Kick());
         }
+    }
+
+    IEnumerator Kick()
+    {
+        anim.SetTrigger("Kick");
+        isAttacking = true;
+        yield return new WaitForSeconds(0.20f);
+        kickHitBox.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        kickHitBox.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = false;
+    }
+    IEnumerator Punch()
+    {
+        anim.SetTrigger("Punch");
+        isAttacking = true;
+        yield return new WaitForSeconds(0.10f);
+        punchHitBox.SetActive(true);
+        yield return new WaitForSeconds(0.10f);
+        punchHitBox.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Proteine")
         {
             protein += other.gameObject.GetComponent<Proteine>().power;
+            if (protein > 100)
+                protein = 100;
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Food")
+        {
+            Grow(other.gameObject.GetComponent<Food>().power);
             Destroy(other.gameObject);
         }
     }

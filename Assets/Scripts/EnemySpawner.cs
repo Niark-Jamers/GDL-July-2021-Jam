@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefab;
     public GameObject[] spawnHolder;
 
     public GameObject EnemyHolder;
@@ -20,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     float currentSpawnTimer;
     float trueTimer = 0;
 
+    float[] powerTable;
+    public Playerator playerScript;
     // Start is called before the first frame update
     
     void Start()
@@ -27,7 +29,18 @@ public class EnemySpawner : MonoBehaviour
         ratio = Camera.main.aspect;
         spawnNumber = spawnHolder.Length;
         currentSpawnTimer = Random.Range(minSpawnTimer, maxSpawnTimer);
+        FillPowerTable();
     }
+
+    void FillPowerTable()
+    {
+        powerTable = new float[enemyPrefab.Length];
+        for (int i = 0; i < enemyPrefab.Length; i++)
+        {
+            powerTable[i] = enemyPrefab[i].GetComponent<EnemyController>().Level;
+        }
+    }
+
 
     void RePositionSpawnPoint()
     {
@@ -43,10 +56,22 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    GameObject GetRandomEnemy()
+    {
+        int i = Random.Range(0, enemyPrefab.Length);
+        float j = 100000;
+        while (j >= playerScript.transform.localScale.x * 2)
+        {
+            i = Random.Range(0, enemyPrefab.Length);
+            j = powerTable[i];
+        }
+        return enemyPrefab[i];
+    }
+
     void SpawnEnemy()
     {
         Vector3 pos = spawnHolder[Random.Range(0, spawnNumber)].transform.position;
-        GameObject tmpGO = Instantiate(enemyPrefab, pos, this.transform.rotation, EnemyHolder.transform);
+        GameObject tmpGO = Instantiate(GetRandomEnemy(), pos, this.transform.rotation, EnemyHolder.transform);
     }
 
     // Update is called once per frame
