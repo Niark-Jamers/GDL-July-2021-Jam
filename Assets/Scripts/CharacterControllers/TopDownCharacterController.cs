@@ -8,18 +8,20 @@ public class TopDownCharacterController : MonoBehaviour
 
     public AudioClip deathClip;
 
-    Animator        animator;
     SpriteRenderer  spriteRenderer;
+    public SpriteRenderer  StickManSprite;
     new Rigidbody2D rigidbody2D;
     public bool     dead = false;
 
 
     public bool freeMovements = false;
+    [Header("ANIMATION")]
+
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         // player = GameObject.FindGameObjectWithTag("Player");
@@ -35,14 +37,12 @@ public class TopDownCharacterController : MonoBehaviour
 
         rigidbody2D.MovePosition(rigidbody2D.position + movement * speed * Time.fixedDeltaTime);
 
-        if (animator != null)
-        {
-            animator.SetFloat("MoveX", movement.x);
-            animator.SetFloat("MoveY", movement.y);
-        }
 
         if (movement.magnitude > 0)
-            spriteRenderer.flipX = movement.x > 0;
+            StickManSprite.flipX = movement.x < 0;
+        anim.SetFloat("Velocity", Mathf.Abs(movement.x));
+        anim.SetFloat("VelocityY", movement.y);
+
     }
 
     public void Die()
@@ -50,8 +50,7 @@ public class TopDownCharacterController : MonoBehaviour
         rigidbody2D.isKinematic = true;
         dead = true;
 
-        if (animator != null)
-            animator.SetTrigger("Death");
+        anim.SetTrigger("KnockOut");
         // AudioManager.PlayOnShot(deathClip);
     }
 
