@@ -175,6 +175,7 @@ public class Playerator : MonoBehaviour
         if (other.tag == "Food")
         {
             Grow(other.gameObject.GetComponent<Food>().power);
+            health += 10;
             Destroy(other.gameObject);
         }
     }

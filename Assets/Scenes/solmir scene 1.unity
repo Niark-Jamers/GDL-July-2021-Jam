@@ -647,11 +647,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1649113473940892050, guid: efc62785497bc054b864fb6615783a57,
-        type: 3}
-      propertyPath: killEc
-      value: 
-      objectReference: {fileID: 1217092424}
     - target: {fileID: 1649113473940892052, guid: efc62785497bc054b864fb6615783a57,
         type: 3}
       propertyPath: m_DynamicOccludee
@@ -1105,12 +1100,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69911175af2380428ff4b6b4588ab75, type: 3}
---- !u!68 &1217092424 stripped
-EdgeCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1399943376, guid: efc62785497bc054b864fb6615783a57,
-    type: 3}
-  m_PrefabInstance: {fileID: 680549226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1228784360
 PrefabInstance:
   m_ObjectHideFlags: 0

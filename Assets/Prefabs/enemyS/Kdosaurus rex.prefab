@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2212518455581421651, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518455581421651, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2212518456263634085, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_Sprite
@@ -28,6 +38,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.898863
       objectReference: {fileID: 0}
+    - target: {fileID: 2212518456263634104, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.21
+      objectReference: {fileID: 0}
     - target: {fileID: 2212518456420973108, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_Size.x
@@ -47,6 +62,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -1.9350486
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973130, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212518456420973130, guid: f8d972eb463c87149a96dc61193e378a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314341, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
@@ -121,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 2212518456967314342, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.21915936
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2212518456967314363, guid: f8d972eb463c87149a96dc61193e378a,
         type: 3}

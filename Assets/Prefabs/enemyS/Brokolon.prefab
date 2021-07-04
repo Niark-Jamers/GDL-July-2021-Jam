@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 6.19}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7781912806679771837
@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &7781912806679771836
 MonoBehaviour:
@@ -293,7 +293,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07915735, y: -0.088406324}
+  m_Offset: {x: 0.07915735, y: 2.81}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -304,7 +304,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.3826647, y: 5.364165}
+  m_Size: {x: 3.87, y: 5.364165}
   m_EdgeRadius: 0
 --- !u!50 &7781912807537176902
 Rigidbody2D:
@@ -357,7 +357,7 @@ MonoBehaviour:
     type: 3}
   bloodSplat: {fileID: 3975039187826846724, guid: ac6898038e8a87b46b50a7fab69bdac0,
     type: 3}
-  range: 1
+  range: 2.88
   hitStunDepletionSpeed: 5
   attackModeTimer: 5
   attackTrueTimer: 0
@@ -484,7 +484,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0643644, y: -1.733252}
+  m_Offset: {x: 1.0643644, y: 1.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -495,7 +495,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.7460556, y: 4.292222}
+  m_Size: {x: 6.55, y: 3.79}
   m_EdgeRadius: 0
 --- !u!50 &7781912808055075028
 Rigidbody2D:
@@ -613,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7781912808174528088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.92, z: 0}
   m_LocalScale: {x: 0.49107, y: 0.49107, z: 2.45535}
   m_Children: []
   m_Father: {fileID: 7781912807537176900}
