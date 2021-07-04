@@ -69,9 +69,9 @@ public class Playerator : MonoBehaviour
 
     void UpdateBars()
     {
-        // lifeFillBar.fillAmount = health / maxHealth;
-        // lifeText.text = health.ToString() + "%";
-        // proteinFillBar.fillAmount = protein / maxProtein;
+        lifeFillBar.fillAmount = health / maxHealth;
+        lifeText.text = health.ToString() + "%";
+        proteinFillBar.fillAmount = protein / maxProtein;
     }
 
     public void Grow(float i, float scale = 10000)

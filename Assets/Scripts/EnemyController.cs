@@ -62,9 +62,14 @@ public class EnemyController : MonoBehaviour
         SetHoverPos();
     }
 
+    Vector3 GetSpawnPos()
+    {
+        return transform.GetChild(0).transform.position;
+    }
+
     public void TakeDamage(Damage.Profile hit)
     {
-        var a = GameObject.Instantiate(bloodFX, transform.position, Quaternion.identity);
+        var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
         hitStun += hit.hitStun;
@@ -73,7 +78,7 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            var b = GameObject.Instantiate(bloodDeath, transform.position, Quaternion.identity);
+            var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
             b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         }
     }
@@ -82,7 +87,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator SpawnFood(float i = 0)
     {
         yield return new WaitForSeconds(i);
-        GameObject.Instantiate(foodPrefab, transform.position, Quaternion.identity);
+        GameObject.Instantiate(foodPrefab, GetSpawnPos(), Quaternion.identity);
         yield break;
     }
 
@@ -97,7 +102,7 @@ public class EnemyController : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
-        GameObject.Instantiate(bloodSplat, transform.position, Quaternion.identity);
+        GameObject.Instantiate(bloodSplat, GetSpawnPos(), Quaternion.identity);
         
         if (animator != null)
             animator.SetTrigger("Death");
