@@ -351,6 +351,8 @@ MonoBehaviour:
   bloodFX: {fileID: 5457967006914803625, guid: 659c4c2cf26bd8343803ff5d358e5ea2, type: 3}
   bloodDeath: {fileID: 4870547719564878809, guid: 68344a2b6e111c046877f9e15e07e9b5,
     type: 3}
+  bloodSplat: {fileID: 3975039187826846724, guid: ac6898038e8a87b46b50a7fab69bdac0,
+    type: 3}
   range: 2
   hitStunDepletionSpeed: 5
   attackModeTimer: 5

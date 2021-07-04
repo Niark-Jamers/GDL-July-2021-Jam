@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     public GameObject attackGO;
     public GameObject bloodFX;
     public GameObject bloodDeath;
+    public GameObject bloodSplat;
 
     public float range = 2;
     public float hitStunDepletionSpeed = 1;
@@ -81,6 +82,7 @@ public class EnemyController : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
+        GameObject.Instantiate(bloodSplat, transform.position, Quaternion.identity);
 
         if (animator != null)
             animator.SetTrigger("Death");
