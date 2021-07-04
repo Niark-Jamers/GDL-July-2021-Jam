@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 9086967747593916856, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: speed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916856, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 9086967747593916856, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: hoverDistance
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916860, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
