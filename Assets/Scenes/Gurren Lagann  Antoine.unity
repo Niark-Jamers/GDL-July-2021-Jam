@@ -1757,6 +1757,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}
+      propertyPath: nextLevelScene
+      value: End
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
+        type: 3}
       propertyPath: attackModeTimer
       value: 2
       objectReference: {fileID: 0}
