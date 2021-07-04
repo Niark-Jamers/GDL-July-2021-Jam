@@ -77,7 +77,6 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(Damage.Profile hit)
     {
         impulseSource.GenerateImpulse(1);
-        AudioManager.PlaySFX(hitClip);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
@@ -86,12 +85,15 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
         if (health <= 0)
         {
+            if (deathClip != null)
+                AudioManager.PlaySFX(deathClip);
             Die();
             var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
             b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         }
+        else
+            AudioManager.PlaySFX(hitClip);
     }
-
 
     IEnumerator SpawnFood(float i = 0)
     {
@@ -107,9 +109,6 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
-        if (deathClip != null)
-            AudioManager.PlaySFX(deathClip);
-        
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
         bc.isTrigger = true;
