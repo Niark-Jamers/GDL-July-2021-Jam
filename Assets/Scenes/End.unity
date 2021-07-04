@@ -1379,6 +1379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bossHoverPos
       objectReference: {fileID: 0}
+    - target: {fileID: 4040357635140110892, guid: 3a78e99ff04b2ef449b96e5e030c485f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4040357635455537677, guid: 3a78e99ff04b2ef449b96e5e030c485f,
         type: 3}
       propertyPath: bs
@@ -2732,7 +2737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962539112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03b9d9ea8555c55458d13ff4691fdabe, type: 3}
   m_Name: 
@@ -2746,7 +2751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962539112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcccfbaa81b5701499de57b34515ea5b, type: 3}
   m_Name: 
@@ -2827,7 +2832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962539112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6345c260b64faaf4384b510af518a31e, type: 3}
   m_Name: 
