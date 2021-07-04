@@ -465,8 +465,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8960957560295057310, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
+      propertyPath: m_DeadZoneHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960957560295057310, guid: 79b6fb08b3369264d9cd5300314d67ae,
+        type: 3}
       propertyPath: m_TrackedObjectOffset.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960957560352334921, guid: 79b6fb08b3369264d9cd5300314d67ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8960957560439715457, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
@@ -1754,6 +1764,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attackWindUp
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
+        type: 3}
+      propertyPath: nextLevelScene
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}

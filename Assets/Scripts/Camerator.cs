@@ -114,6 +114,9 @@ public class Camerator : MonoBehaviour
 #endif
 
 
+    if (isfinal)
+        transposer.m_TrackedObjectOffset.y = 3 + targetSize / 2.0f - 1.0f;
+        else
         transposer.m_TrackedObjectOffset.y = 3 + targetSize / 3.0f - 1.0f;
         //        Debug.Log(transposer.m_TrackedObjectOffset.y);
         if (targetSize < baseCamSize)

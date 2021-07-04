@@ -99,11 +99,11 @@ public class BossScript : MonoBehaviour
 
     public void Killme(float i = 0)
     {
-        Destroy(this.gameObject, i);
-        StartCoroutine(LoadNextLevel());
+        // Destroy(this.gameObject, i);
+        StartCoroutine(LoadNextLevel(i));
     }
 
-    IEnumerator LoadNextLevel()
+    IEnumerator LoadNextLevel(float i)
     {
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(nextLevelScene);
