@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_BackgroundSG_CUrved
+  m_Shader: {fileID: -6465566751694194690, guid: f13d4db0cace27f4cb69749f17d5b761,
+    type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - C: -0.12
+    - MaxHeight: 103.65
+    - NoiseMultiplier: 4.06
+    - NoiseScale: 0.006
+    - _Offset: -0.44
+    m_Colors:
+    - EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - FloorColor: {r: 0, g: 0.65104175, b: 1, a: 0}
+    - SkyColor1: {r: 0.61574405, g: 0.8179957, b: 0.9528302, a: 0}
+    - SkyColor2: {r: 0.5712887, g: 0.7248711, b: 0.9245283, a: 0}
+    - SpaceColor: {r: 0, g: 0.11817971, b: 0.3962264, a: 0}
+  m_BuildTextureStacks: []
