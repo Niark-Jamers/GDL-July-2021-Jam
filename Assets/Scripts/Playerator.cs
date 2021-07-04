@@ -129,11 +129,11 @@ public class Playerator : MonoBehaviour
         {
             animFlipX = tdc.movement.x < 0;
         }
-        if (!isAttacking && Input.GetKeyDown(KeyCode.J))
+        if (!isAttacking && (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0)))
         {
             StartCoroutine(Punch());
         }
-        if (!isAttacking && Input.GetKeyDown(KeyCode.K))
+        if (!isAttacking && (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1)))
         {
             StartCoroutine(Kick());
         }

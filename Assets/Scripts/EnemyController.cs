@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class EnemyController : MonoBehaviour
 
     public float attackWindUp = 1f;
 
+    CinemachineImpulseSource impulseSource;
 
     void Start()
     {
@@ -64,6 +66,7 @@ public class EnemyController : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         baseRange = range;
         SetHoverPos();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     Vector3 GetSpawnPos()
@@ -73,6 +76,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        impulseSource.GenerateImpulse(1);
         AudioManager.PlaySFX(hitClip);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
