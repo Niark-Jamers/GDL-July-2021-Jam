@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 // [ExecuteAlways]
 public class GroundSlicer : MonoBehaviour
 {
 
     EdgeCollider2D ec;
+    public EdgeCollider2D killEc;
 
     public bool reset = false;
 
-    public bool showChar = false;
-
-    [Serializable]
-    public struct testChar
-    {
-        public Transform testTransform;
-        public int testSpread;
-        public int[] testStorage;
-    }
-
-    [SerializeField]
-    public List<testChar> TestList = new List<testChar>();
+    public GameObject enemyParent;
+    public Transform testPlayer;
 
     float gUp;
     float gDown;
@@ -133,19 +125,32 @@ public class GroundSlicer : MonoBehaviour
             SetBounds();
             SliceGround();
         }
-        if (showChar)
+        ReBoundGround();
+    }
+
+    void ReBoundGround()
+    {
+        Vector2[] tmp = ec.points;
+        Vector2[] tmpKill = killEc.points;
+        
+        for (int i = 0; i < tmp.Length; i++)
         {
-            for (int i = 0; i < TestList.Count; i++)
+            if (tmp[i].y > -1)
             {
-                testChar tmp = TestList[i];
-                tmp.testStorage = getSlices(tmp.testTransform.position.y, tmp.testSpread);
-                TestList[i] = tmp;
+                //Debug.Log(tmp);
+                tmp[i].y = GameManager.Instance.playerPosition.localScale.y;
             }
-            // if (CompareSlices(TestList[0].testStorage, TestList[1].testStorage))
-            //     Debug.Log("ca touche");
-            // else
-            //     Debug.Log("ca touche pas");
         }
+        for (int i = 0; i < tmpKill.Length; i++)
+        {
+            if (tmpKill[i].y > -1)
+            {
+                //Debug.Log(tmpKill);
+                tmpKill[i].y = GameManager.Instance.playerPosition.localScale.y + 1;
+            }
+        }
+        ec.SetPoints(tmp.ToList());
+        killEc.SetPoints(tmpKill.ToList());
     }
 
     private void OnDrawGizmos()
@@ -159,21 +164,27 @@ public class GroundSlicer : MonoBehaviour
         // Gizmos.color = Color.blue;
         // Gizmos.DrawSphere(new Vector3(gRight, gDown / 2, 0), 1);
         // 
-        if (showChar)
-        {
+
             foreach (float f in slicedGround)
             {
                 Gizmos.color = Color.black;
                 Gizmos.DrawLine(new Vector3(gLeft, f, 0), new Vector3(gRight, f, 0));
             }
-            foreach (testChar ts in TestList)
+            foreach (Transform ts in enemyParent.transform)
             {
-                for (int i = 0; i < ts.testStorage.Length; i++)
+                int[] tmp = getSlices(ts.position.y, ts.gameObject.GetComponent<EnemyController>().spread);
+                foreach (int i in tmp)
                 {
                     Gizmos.color = Color.cyan;
-                    Gizmos.DrawSphere(new Vector3(ts.testTransform.position.x, sliceInterval * ts.testStorage[i] - sliceInterval / 2, 0), sliceInterval / 2);
+                    Gizmos.DrawSphere(new Vector3(ts.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
                 }
             }
+            int[] tmp2 = getSlices(testPlayer.position.y, testPlayer.gameObject.GetComponent<Playerator>().spread);
+            foreach (int i in tmp2)
+                {
+                    Gizmos.color = Color.cyan;
+                    Gizmos.DrawSphere(new Vector3(testPlayer.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
+                }
         }
     }
-}
+

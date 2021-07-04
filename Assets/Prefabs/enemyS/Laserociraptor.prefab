@@ -13,7 +13,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4274025, y: -1.8927809}
+  m_Offset: {x: 0.4274025, y: 1.1881133}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -24,7 +24,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6248531, y: 2.5201828}
+  m_Size: {x: 2.6248531, y: 2.4164097}
   m_EdgeRadius: 0
 --- !u!1001 &8235577328507140594
 PrefabInstance:
@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: 9086967747593916856, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: range
-      value: 4.25
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916860, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
@@ -101,22 +101,22 @@ PrefabInstance:
     - target: {fileID: 9086967747593916863, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: m_Size.x
-      value: 9.395533
+      value: 7.984215
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916863, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.6162784
+      value: 2.6162786
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916863, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.048239708
+      value: 0.55364513
       objectReference: {fileID: 0}
     - target: {fileID: 9086967747593916863, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.7403153
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 9086967748031579809, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
@@ -132,6 +132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2418067
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086967748031579809, guid: 8cbb16a610d72f14d9f90db1708a78e9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 9086967748031579836, guid: 8cbb16a610d72f14d9f90db1708a78e9,
         type: 3}
