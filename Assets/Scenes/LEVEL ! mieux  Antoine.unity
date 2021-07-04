@@ -420,6 +420,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 441140065, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
+      propertyPath: hurt
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f0760c68d56eee40a715569eca0ab5c, type: 3}
+    - target: {fileID: 441140065, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 65771508}
@@ -437,15 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 773348884}
     - target: {fileID: 451629843, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 451629843, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 451629843, guid: 0c687718c27f58b4e96aef301301769c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1950422495
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2304716402436028454, guid: 0c687718c27f58b4e96aef301301769c,
         type: 3}

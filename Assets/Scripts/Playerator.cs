@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Playerator : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class Playerator : MonoBehaviour
     public float hitStunDepletionSpeed = 1;
     public float powerMult;
     bool isAttacking;
+    public AudioClip hurt;
 
     [Header("GROW")]
     public float growScaling = 0.3f;
@@ -64,11 +66,31 @@ public class Playerator : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        AudioManager.PlaySFX(hurt, 1);
         impulseSource.GenerateImpulse(1);
         health -= hit.dmg;
+        if (health <= 0)
+        {
+            Die();
+            return;
+        }
         hitStun += hit.hitStun;
         if (hit.knockback > 0)
             rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
+    }
+    
+    void Die()
+    {
+        anim.SetTrigger("KnockOut");
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
+        StartCoroutine(Restart());
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void UpdateBars()
