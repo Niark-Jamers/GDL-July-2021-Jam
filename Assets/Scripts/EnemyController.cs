@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
+    public GameObject foodPrefab;
 
     public float Level = 1;
     public int spread = 3;
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
     [Header("Movement")]
     public float speed = 6f;
     public float hoverDistance = 10f;
+    float baseHoverDist;
     public float hoverVariance = 1f;
     Transform playerPos;
 
@@ -41,6 +43,7 @@ public class EnemyController : MonoBehaviour
     public GameObject bloodSplat;
 
     public float range = 2;
+    float baseRange;
     public float hitStunDepletionSpeed = 1;
     public float attackModeTimer = 5f;
     public float attackTrueTimer = 0f;
@@ -54,6 +57,8 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerPos = GameManager.Instance.playerPosition;
         attackGO.SetActive(false);
+        baseHoverDist = hoverDistance;
+        baseRange = range;
         SetHoverPos();
     }
 
@@ -73,6 +78,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
+    IEnumerator SpawnFood(float i = 0)
+    {
+        yield return new WaitForSeconds(i);
+        GameObject.Instantiate(foodPrefab, transform.position, Quaternion.identity);
+        yield break;
+    }
+
     public void Killme(float i = 0)
     {
         Destroy(this.gameObject, i);
@@ -85,9 +98,10 @@ public class EnemyController : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         dead = true;
         GameObject.Instantiate(bloodSplat, transform.position, Quaternion.identity);
-
+        
         if (animator != null)
             animator.SetTrigger("Death");
+        StartCoroutine("SpawnFood", 1.5f);
         Killme(2);
         // AudioManager.PlayOnShot(deathClip);
     }
@@ -104,12 +118,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void Scaledistance()
+    {
+        hoverDistance = baseHoverDist * playerPos.localScale.x;
+        range = baseRange + playerPos.localScale.x / 2;
+    }
+
     void Update()
     {
         healthFillBar.fillAmount = health / maxHealth;
         if (dead)
             return;
-
+        Scaledistance();
         DoHitStun();
         if (currentState != enemyState.attackMove && currentState != enemyState.attacking)
             attackTrueTimer += Time.deltaTime;
@@ -155,11 +175,11 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator EndAttack()
     {
-        
+
         yield return new WaitForSeconds(1f);
         attackGO.SetActive(false);
         currentState = enemyState.hover;
-        StopCoroutine("EndAttack");
+        yield break;
     }
 
     void StartAttack()
