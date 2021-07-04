@@ -10,6 +10,7 @@ public class BossScript : MonoBehaviour
     BoxCollider2D bc;
     Animator animator;
 
+    public float level = 10;
     public bool fighting = false;
 
     public int spread = 3;
@@ -54,7 +55,7 @@ public class BossScript : MonoBehaviour
 
     public float attackWindUp = 1f;
 
-
+    public bool isfinale = false;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -75,8 +76,10 @@ public class BossScript : MonoBehaviour
     public void TakeDamage(Damage.Profile hit)
     {
         AudioManager.PlaySFX(hitClip);
+        
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
+        a.transform.localScale = a.transform.localScale * level;
         health -= hit.dmg;
         hitStun += hit.hitStun;
         if (hit.knockback > 0)
@@ -85,6 +88,7 @@ public class BossScript : MonoBehaviour
         {
             Die();
             var b = GameObject.Instantiate(bloodDeath, GetSpawnPos(), Quaternion.identity);
+            b.transform.localScale = b.transform.localScale * level;
             b.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         }
     }

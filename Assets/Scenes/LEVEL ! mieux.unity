@@ -359,40 +359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 8960957560352334920, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 148.98729
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957560352334920, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 14.275
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957560352334920, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -13.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957560352334921, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8960957560439715457, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 146.40106
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957560439715457, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.6868618
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957560439715457, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 154.73828
+      value: -0.59894466
       objectReference: {fileID: 0}
     - target: {fileID: 8960957560439715458, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
@@ -407,37 +377,7 @@ PrefabInstance:
     - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 146.40106
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.6868618
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 154.73828
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960957561199595947, guid: 79b6fb08b3369264d9cd5300314d67ae,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.59894466
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b6fb08b3369264d9cd5300314d67ae, type: 3}
@@ -554,11 +494,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 7463993756608544208, guid: 869889bef90d30c499cccd1b77d7c2d0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7463993756608544209, guid: 869889bef90d30c499cccd1b77d7c2d0,
         type: 3}
       propertyPath: m_RootOrder
@@ -647,7 +582,7 @@ PrefabInstance:
     - target: {fileID: 6444450333889792100, guid: 0c687718c27f58b4e96aef301301769c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6444450333889792100, guid: 0c687718c27f58b4e96aef301301769c,
         type: 3}
@@ -930,16 +865,6 @@ PrefabInstance:
       propertyPath: vCam
       value: 
       objectReference: {fileID: 42942303}
-    - target: {fileID: 1848460074745954533, guid: e244396f34025604fb8ab1adeb7b8e5a,
-        type: 3}
-      propertyPath: maxSpawnTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848460074745954533, guid: e244396f34025604fb8ab1adeb7b8e5a,
-        type: 3}
-      propertyPath: minSpawnTimer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e244396f34025604fb8ab1adeb7b8e5a, type: 3}
 --- !u!1 &1981841759 stripped

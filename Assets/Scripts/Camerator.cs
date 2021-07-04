@@ -12,6 +12,9 @@ public class Camerator : MonoBehaviour
     public Transform camGround;
     Rigidbody2D rbGround;
 
+    public bool isfinal = false;
+    public float finalcamsize;
+
     float updatedCamAtPos;
 
     float ratio;
@@ -104,12 +107,15 @@ public class Camerator : MonoBehaviour
         }
 #else
 
-        targetSize = baseCamSize + playerator.powerMult * 1.1f;
+    if (isfinal)
+        targetSize = finalcamsize;
+    else
+        {targetSize = baseCamSize + playerator.powerMult * 1.1f;}
 #endif
 
 
         transposer.m_TrackedObjectOffset.y = 3 + targetSize / 3.0f - 1.0f;
-//        Debug.Log(transposer.m_TrackedObjectOffset.y);
+        //        Debug.Log(transposer.m_TrackedObjectOffset.y);
         if (targetSize < baseCamSize)
             targetSize = baseCamSize;
         // Vector2 hypo = new Vector2(XEnd, YEnd) - new Vector2(XStart, YStart);
@@ -133,8 +139,9 @@ public class Camerator : MonoBehaviour
         UpdateCamSize();
         vCam.m_Lens.OrthographicSize = Mathf.Lerp(vCam.m_Lens.OrthographicSize, targetSize, Time.deltaTime * speed);
     }
-    private void FixedUpdate() {
-        rbGround.MovePosition(new Vector2(rbGround.position.x,(-targetSize-camGround.localScale.y)));
+    private void FixedUpdate()
+    {
+        rbGround.MovePosition(new Vector2(rbGround.position.x, (-targetSize - camGround.localScale.y)));
     }
 
 }

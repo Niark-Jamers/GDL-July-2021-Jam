@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (gameObject.tag == "Stomp" && tmpP.Level < pa.transform.localScale.x / 2 && pa.transform.GetComponent<TopDownCharacterController>().movement.sqrMagnitude > 0)
             {
-                Debug.Log("hit et stomp" + other.tag);
+                // Debug.Log("hit et stomp" + other.tag);
                 attack.dmg = tmp * pa.powerMult;
                 attack.dir = (other.transform.position - pa.transform.position).normalized;
                 tmpP.TakeDamage(attack);

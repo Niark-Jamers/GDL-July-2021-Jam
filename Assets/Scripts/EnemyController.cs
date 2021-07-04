@@ -84,6 +84,7 @@ public class EnemyController : MonoBehaviour
         impulseSource.GenerateImpulse(1);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
+        a.transform.localScale = a.transform.localScale * Level;
         health -= hit.dmg;
         hitStun += hit.hitStun;
         if (hit.knockback > 0)

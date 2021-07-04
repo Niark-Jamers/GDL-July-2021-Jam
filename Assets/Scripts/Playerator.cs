@@ -31,11 +31,12 @@ public class Playerator : MonoBehaviour
     public float growScaling = 0.3f;
     public float growSpeed = 2;
     float growTrueTimer = 0;
-    float growdecayTimer = 0.5f;
+    public float growdecayTimer = 0.5f;
     float toGrow;
     float targetSize;
 
     float maxSize = 35;
+    public bool isfinale = false;
     float baseSpeed;
 
     public int spread;
@@ -62,6 +63,8 @@ public class Playerator : MonoBehaviour
         targetSize = transform.localScale.x;
         impulseSource = GetComponent<CinemachineImpulseSource>();
         baseSpeed = tdc.speed;
+        if (isfinale)
+            maxSize = 50f;
     }
 
     public void TakeDamage(Damage.Profile hit)
