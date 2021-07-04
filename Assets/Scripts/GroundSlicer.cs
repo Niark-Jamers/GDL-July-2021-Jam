@@ -139,7 +139,7 @@ public class GroundSlicer : MonoBehaviour
             if (tmp[i].y > -1)
             {
                 //Debug.Log(tmp);
-                tmp[i].y = GameManager.Instance.playerPosition.localScale.y;
+                tmp[i].y = GameManager.Instance.playerPosition.localScale.y + 2;
             }
         }
         for (int i = 0; i < tmpKill.Length; i++)
