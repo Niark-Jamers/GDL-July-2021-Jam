@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVEL ! mieux.unity
     guid: c84b11db578b55b4faf068b093ca7631
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 1955a1011081d574aa107e4f69a42cf8
   m_configObjects: {}
