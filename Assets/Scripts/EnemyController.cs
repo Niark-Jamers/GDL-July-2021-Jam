@@ -41,6 +41,8 @@ public class EnemyController : MonoBehaviour
     public GameObject bloodFX;
     public GameObject bloodDeath;
     public GameObject bloodSplat;
+    public AudioClip hitClip;
+    public AudioClip deathClip;
 
     public float range = 2;
     float baseRange;
@@ -69,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(Damage.Profile hit)
     {
+        AudioManager.PlaySFX(hitClip);
         var a = GameObject.Instantiate(bloodFX, GetSpawnPos(), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().flipX = playerPos.position.x > transform.position.x;
         health -= hit.dmg;
@@ -98,6 +101,8 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        if (deathClip != null)
+            AudioManager.PlaySFX(deathClip);
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.red;

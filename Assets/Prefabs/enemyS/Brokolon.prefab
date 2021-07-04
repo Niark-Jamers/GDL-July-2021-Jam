@@ -357,6 +357,8 @@ MonoBehaviour:
     type: 3}
   bloodSplat: {fileID: 3975039187826846724, guid: ac6898038e8a87b46b50a7fab69bdac0,
     type: 3}
+  hitClip: {fileID: 8300000, guid: 11cbb98b49da601469f5d04862ac5119, type: 3}
+  deathClip: {fileID: 0}
   range: 2.88
   hitStunDepletionSpeed: 5
   attackModeTimer: 5
