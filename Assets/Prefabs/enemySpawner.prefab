@@ -49,9 +49,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1706323421371315799, guid: 10bf0745a26f86840a93858eae914d3d, type: 3}
+  - {fileID: 7781912807537176922, guid: 791f07041af0b4842a507fc1db7b12be, type: 3}
+  - {fileID: 9086967747593916834, guid: 8cbb16a610d72f14d9f90db1708a78e9, type: 3}
+  - {fileID: 2212518456967314363, guid: f8d972eb463c87149a96dc61193e378a, type: 3}
+  - {fileID: 4673096644027684894, guid: 3879d88ac9645da42a19a39d7e084d80, type: 3}
+  - {fileID: 887702772033120336, guid: 3f3a484c0dddeed46a8672b1721a19aa, type: 3}
+  - {fileID: 6074283022496196270, guid: 0b5ed611edfb37e4aa9acf9a3c796727, type: 3}
+  - {fileID: 6813300318671809704, guid: c91852cc24c7ed44491594965489fbbe, type: 3}
   spawnHolder:
   - {fileID: 7463993757061374979}
   - {fileID: 7463993758147156744}
