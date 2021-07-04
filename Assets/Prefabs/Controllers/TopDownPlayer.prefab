@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 3207832319937304333}
   - component: {fileID: 6896042814094302345}
   m_Layer: 10
-  m_Name: PunchHitBox
+  m_Name: RPunchHitBox
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,8 +610,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845782035921455996}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6199999, y: 1.73, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9999827, w: 0.0058823517}
+  m_LocalPosition: {x: 0.545, y: 1.501, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6444450333889792100}
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 4607653929242567572}
   - component: {fileID: 671648147180010562}
   m_Layer: 10
-  m_Name: KickHitBox
+  m_Name: RKickHitBox
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,13 +708,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866235941018748605}
-  m_LocalRotation: {x: -0.0026630918, y: 0.01809016, z: 0.14497739, w: 0.98926604}
-  m_LocalPosition: {x: 1.0999999, y: 1.44, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.2262398, w: 0.9740717}
+  m_LocalPosition: {x: 0.951, y: 1.414, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6444450333889792100}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -0.602, y: 2.007, z: 16.664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.152}
 --- !u!114 &7984457568375772688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +780,104 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &5674947886853540745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528324114754069341}
+  - component: {fileID: 8578287662219309126}
+  - component: {fileID: 8617922008832978253}
+  - component: {fileID: 5801036454556844349}
+  m_Layer: 10
+  m_Name: LKickHitBox
+  m_TagString: PlayerAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &528324114754069341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674947886853540745}
+  m_LocalRotation: {x: 0, y: 0, z: -0.22624338, w: 0.9740708}
+  m_LocalPosition: {x: -1.332, y: 1.414, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6444450333889792100}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.152}
+--- !u!114 &8578287662219309126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674947886853540745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e323a19ce4c964195c0f6b81f43d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pa: {fileID: 441140065}
+  attack:
+    dmg: 20
+    hitStun: 2
+    knockback: 10
+    dir: {x: 0, y: 0}
+--- !u!61 &8617922008832978253
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674947886853540745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.10831118}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2923677}
+  m_EdgeRadius: 0
+--- !u!50 &5801036454556844349
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674947886853540745}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6444450333889792107
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +916,8 @@ Transform:
   - {fileID: 902622626}
   - {fileID: 8145050163393124643}
   - {fileID: 1864278210814784769}
+  - {fileID: 7300002244219836584}
+  - {fileID: 528324114754069341}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -889,6 +989,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   StickManSprite: {fileID: 451629843}
   dead: 0
+  movement: {x: 0, y: 0}
   freeMovements: 0
   anim: {fileID: 1924150004}
 --- !u!50 &6444450333889792102
@@ -964,8 +1065,10 @@ MonoBehaviour:
   growSpeed: 2
   spread: 0
   anim: {fileID: 1924150004}
-  punchHitBox: {fileID: 845782035921455996}
-  kickHitBox: {fileID: 1866235941018748605}
+  rPunchHitBox: {fileID: 845782035921455996}
+  lPunchHitBox: {fileID: 8958430893784701301}
+  rKickHitBox: {fileID: 1866235941018748605}
+  lKickHitBox: {fileID: 5674947886853540745}
   currentState: 0
 --- !u!114 &441140071
 MonoBehaviour:
@@ -1041,3 +1144,101 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 1000
     m_PropagationSpeed: 343
+--- !u!1 &8958430893784701301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7300002244219836584}
+  - component: {fileID: 6563823054490759148}
+  - component: {fileID: 587440363794323986}
+  - component: {fileID: 7118763017979388165}
+  m_Layer: 10
+  m_Name: LPunchHitBox
+  m_TagString: PlayerAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7300002244219836584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958430893784701301}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9999828, w: 0.005881786}
+  m_LocalPosition: {x: -1.112, y: 1.408, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6444450333889792100}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.326}
+--- !u!114 &6563823054490759148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958430893784701301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e323a19ce4c964195c0f6b81f43d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pa: {fileID: 441140065}
+  attack:
+    dmg: 20
+    hitStun: 2
+    knockback: 10
+    dir: {x: 0, y: 0}
+--- !u!61 &587440363794323986
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958430893784701301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.10831118}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2923677}
+  m_EdgeRadius: 0
+--- !u!50 &7118763017979388165
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958430893784701301}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
