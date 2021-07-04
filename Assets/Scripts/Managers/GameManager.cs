@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Player
 {
     public int level;
@@ -33,9 +34,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
+       SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        playerPosition = FindObjectOfType<Playerator>().transform;
     }
 
     // Update is called once per frame
