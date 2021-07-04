@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 // [ExecuteAlways]
 public class GroundSlicer : MonoBehaviour
 {
 
     EdgeCollider2D ec;
+    public EdgeCollider2D killEc;
 
     public bool reset = false;
 
@@ -133,6 +135,7 @@ public class GroundSlicer : MonoBehaviour
             SetBounds();
             SliceGround();
         }
+        ReBoundGround();
         if (showChar)
         {
             for (int i = 0; i < TestList.Count; i++)
@@ -146,6 +149,31 @@ public class GroundSlicer : MonoBehaviour
             // else
             //     Debug.Log("ca touche pas");
         }
+    }
+
+    void ReBoundGround()
+    {
+        Vector2[] tmp = ec.points;
+        Vector2[] tmpKill = killEc.points;
+        
+        for (int i = 0; i < tmp.Length; i++)
+        {
+            if (tmp[i].y > -1)
+            {
+                //Debug.Log(tmp);
+                tmp[i].y = GameManager.Instance.playerPosition.localScale.y;
+            }
+        }
+        for (int i = 0; i < tmpKill.Length; i++)
+        {
+            if (tmpKill[i].y > -1)
+            {
+                //Debug.Log(tmpKill);
+                tmpKill[i].y = GameManager.Instance.playerPosition.localScale.y + 1;
+            }
+        }
+        ec.SetPoints(tmp.ToList());
+        killEc.SetPoints(tmpKill.ToList());
     }
 
     private void OnDrawGizmos()

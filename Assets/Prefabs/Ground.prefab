@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1fd412fb4828344906c6b5fd3d4230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killEc: {fileID: 1399943376}
   reset: 0
   showChar: 0
   TestList:
