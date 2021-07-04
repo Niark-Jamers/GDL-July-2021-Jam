@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using System.Collections;
 
 public class Playerator : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Playerator : MonoBehaviour
     float hitStun;
     public float hitStunDepletionSpeed = 1;
     public float powerMult;
+    bool isAttacking;
 
     [Header("GROW")]
     public float growScaling = 0.1f;
@@ -35,6 +37,8 @@ public class Playerator : MonoBehaviour
     [Header("ANIMATION")]
 
     public Animator anim;
+    public GameObject punchHitBox;
+    public GameObject kickHitBox;
 
     Rigidbody2D rb;
     [HideInInspector]
@@ -116,14 +120,37 @@ public class Playerator : MonoBehaviour
         powerMult = this.transform.localScale.x;
         spread = (int)(powerMult + 3);
         
-        if (Input.GetKeyDown(KeyCode.J))
+        if (!isAttacking && Input.GetKeyDown(KeyCode.J))
         {
-            anim.SetTrigger("Punch");
+            StartCoroutine(Punch());
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!isAttacking && Input.GetKeyDown(KeyCode.K))
         {
-            anim.SetTrigger("Kick");
+            StartCoroutine(Kick());
         }
+    }
+
+    IEnumerator Kick()
+    {
+        anim.SetTrigger("Kick");
+        isAttacking = true;
+        yield return new WaitForSeconds(0.20f);
+        kickHitBox.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        kickHitBox.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = false;
+    }
+    IEnumerator Punch()
+    {
+        anim.SetTrigger("Punch");
+        isAttacking = true;
+        yield return new WaitForSeconds(0.10f);
+        punchHitBox.SetActive(true);
+        yield return new WaitForSeconds(0.10f);
+        punchHitBox.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
