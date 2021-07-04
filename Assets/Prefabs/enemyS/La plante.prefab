@@ -216,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 2267386260508828214, guid: 9f7c84aaddcd3ed448af82dbf8d65773,
         type: 3}
       propertyPath: hoverDistance
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7c84aaddcd3ed448af82dbf8d65773, type: 3}
