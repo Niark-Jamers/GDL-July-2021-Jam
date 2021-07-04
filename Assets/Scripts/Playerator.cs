@@ -93,8 +93,7 @@ public class Playerator : MonoBehaviour
             if (protein < 0)
                 protein = 0;
             float growPow = ( 1.01f * ( 1 + (protein/maxProtein) / 10));
-           // Debug.Log(growPow);
-            targetSize = targetSize * growPow;
+            targetSize = targetSize * growPow ;
         }
         float tmp = transform.localScale.x;
         tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
@@ -144,9 +143,9 @@ public class Playerator : MonoBehaviour
         GameObject hitBox = animFlipX ? lKickHitBox : rKickHitBox;
         anim.SetTrigger("Kick");
         isAttacking = true;
-        yield return new WaitForSeconds(0.20f);
-        hitBox.SetActive(true);
         yield return new WaitForSeconds(0.15f);
+        hitBox.SetActive(true);
+        yield return new WaitForSeconds(0.20f);
         hitBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         isAttacking = false;
@@ -158,9 +157,9 @@ public class Playerator : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(0.10f);
         hitBox.SetActive(true);
-        yield return new WaitForSeconds(0.10f);
+        yield return new WaitForSeconds(0.15f);
         hitBox.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         isAttacking = false;
     }
 
