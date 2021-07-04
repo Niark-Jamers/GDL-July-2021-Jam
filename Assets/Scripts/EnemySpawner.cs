@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] spawnHolder;
 
     public GameObject EnemyHolder;
-    float spawnNumber;
+    int spawnNumber;
     float ratio;
     public Cinemachine.CinemachineVirtualCamera vCam;
 
@@ -17,12 +17,16 @@ public class EnemySpawner : MonoBehaviour
     public float minSpawnTimer = 3;
     public float maxSpawnTimer = 6;
 
+    float currentSpawnTimer;
+    float trueTimer = 0;
+
     // Start is called before the first frame update
     
     void Start()
     {
         ratio = Camera.main.aspect;
         spawnNumber = spawnHolder.Length;
+        currentSpawnTimer = Random.Range(minSpawnTimer, maxSpawnTimer);
     }
 
     void RePositionSpawnPoint()
@@ -39,9 +43,22 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void SpawnEnemy()
+    {
+        Vector3 pos = spawnHolder[Random.Range(0, spawnNumber)].transform.position;
+        GameObject tmpGO = Instantiate(enemyPrefab, pos, this.transform.rotation, EnemyHolder.transform);
+    }
+
     // Update is called once per frame
     void Update()
     {
         RePositionSpawnPoint();
+        trueTimer += Time.deltaTime;
+        if (trueTimer > currentSpawnTimer && EnemyHolder.transform.childCount < MaxEnemyNumber)
+        {
+            trueTimer = 0;
+            currentSpawnTimer = Random.Range(minSpawnTimer, maxSpawnTimer);
+            SpawnEnemy();
+        }
     }
 }
