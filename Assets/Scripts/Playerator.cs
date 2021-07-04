@@ -20,6 +20,15 @@ public class Playerator : MonoBehaviour
 
     float hitStun;
     public float hitStunDepletionSpeed = 1;
+    public float powerMult;
+
+    [Header("GROW")]
+    public float growScaling = 0.1f;
+    public float growSpeed = 2;
+    float growTrueTimer = 0;
+    float growdecayTimer = 1;
+    float toGrow;
+    float targetSize;
 
     [Header("ANIMATION")]
 
@@ -35,6 +44,7 @@ public class Playerator : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tdc = GetComponent<TopDownCharacterController>();
+        targetSize = transform.localScale.x;
     }
 
 
@@ -47,16 +57,34 @@ public class Playerator : MonoBehaviour
             rb.AddForce(hit.dir * hit.knockback, ForceMode2D.Impulse);
     }
 
-    void updateBars()
+    void UpdateBars()
     {
         lifeFillBar.fillAmount = health / maxHealth;
         lifeText.text = health.ToString() + "%";
         proteinFillBar.fillAmount = protein / maxProtein;
     }
 
-    void Grow(int i)
+    void Grow(float i, float scale)
     {
+        if (scale < this.transform.localScale.x /2)
+            i = i / growScaling;
+        toGrow += i;
+    }
 
+    void DoGrow()
+    {
+        
+        growTrueTimer += Time.deltaTime;
+        if (growTrueTimer > growdecayTimer && toGrow > 0)
+        {
+            growTrueTimer = 0;
+            toGrow--;
+            protein--;
+            targetSize = targetSize * ( 1.02f * ( 1 + protein/100));
+        }
+        float tmp = transform.localScale.x;
+        tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
+        transform.localScale = new Vector3(tmp, tmp, tmp);
     }
 
     void DoHitStun()
@@ -77,8 +105,10 @@ public class Playerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateBars();
+        UpdateBars();
         DoHitStun();
+        DoGrow();
+        powerMult = this.transform.localScale.x;
         if (Input.GetKeyDown(KeyCode.J))
         {
             anim.SetTrigger("Punch");
