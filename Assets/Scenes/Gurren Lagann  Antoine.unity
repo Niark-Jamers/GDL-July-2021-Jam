@@ -1713,12 +1713,17 @@ PrefabInstance:
     - target: {fileID: 5917372782356461589, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
+        type: 3}
+      propertyPath: range
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}
@@ -1730,6 +1735,11 @@ PrefabInstance:
       propertyPath: isfinale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
+        type: 3}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c7a6275794fd4748a4a363496bd444f, type: 3}
     - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
         type: 3}
       propertyPath: maxHealth
@@ -1749,6 +1759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attackModeTimer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917372782356461590, guid: 2375569523b38204695cb17074c2cf4c,
+        type: 3}
+      propertyPath: hitStunDepletionSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2375569523b38204695cb17074c2cf4c, type: 3}
