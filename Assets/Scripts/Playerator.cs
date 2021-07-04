@@ -27,10 +27,11 @@ public class Playerator : MonoBehaviour
     public float growScaling = 0.1f;
     public float growSpeed = 2;
     float growTrueTimer = 0;
-    float growdecayTimer = 1;
+    float growdecayTimer = 0.5f;
     float toGrow;
     float targetSize;
 
+    public int spread;
     [Header("ANIMATION")]
 
     public Animator anim;
@@ -68,7 +69,7 @@ public class Playerator : MonoBehaviour
         proteinFillBar.fillAmount = protein / maxProtein;
     }
 
-    void Grow(float i, float scale)
+    public void Grow(float i, float scale = 10000)
     {
         if (scale < this.transform.localScale.x /2)
             i = i / growScaling;
@@ -93,9 +94,9 @@ public class Playerator : MonoBehaviour
 
     void DoHitStun()
     {
-        anim.SetTrigger("Hurt");
         if (hitStun > 0)
         {
+            anim.SetTrigger("Hurt");
             currentState = playerState.hitStun;
             tdc.freeMovements = true;
             hitStun -= Time.deltaTime * hitStunDepletionSpeed;
@@ -113,6 +114,8 @@ public class Playerator : MonoBehaviour
         DoHitStun();
         DoGrow();
         powerMult = this.transform.localScale.x;
+        spread = (int)(powerMult + 3);
+        
         if (Input.GetKeyDown(KeyCode.J))
         {
             anim.SetTrigger("Punch");
@@ -127,6 +130,11 @@ public class Playerator : MonoBehaviour
         if (other.tag == "Proteine")
         {
             protein += other.gameObject.GetComponent<Proteine>().power;
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Food")
+        {
+            Grow(other.gameObject.GetComponent<Food>().power);
             Destroy(other.gameObject);
         }
     }

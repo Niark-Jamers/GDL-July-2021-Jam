@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+    public float Level = 1;
+    public int spread = 3;
 
     [Header("Health")]
     public float maxHealth = 100;
