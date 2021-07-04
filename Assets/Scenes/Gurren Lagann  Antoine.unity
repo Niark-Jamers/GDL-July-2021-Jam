@@ -465,8 +465,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8960957560295057310, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
+      propertyPath: m_DeadZoneHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960957560295057310, guid: 79b6fb08b3369264d9cd5300314d67ae,
+        type: 3}
       propertyPath: m_TrackedObjectOffset.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960957560352334921, guid: 79b6fb08b3369264d9cd5300314d67ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8960957560439715457, guid: 79b6fb08b3369264d9cd5300314d67ae,
         type: 3}
