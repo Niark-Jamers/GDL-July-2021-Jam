@@ -28,14 +28,14 @@ public class Playerator : MonoBehaviour
     public AudioClip hurt;
 
     [Header("GROW")]
-    public float growScaling = 0.1f;
+    public float growScaling = 0.3f;
     public float growSpeed = 2;
     float growTrueTimer = 0;
     float growdecayTimer = 0.5f;
     float toGrow;
     float targetSize;
 
-    float maxSize = 50;
+    float maxSize = 35;
     float baseSpeed;
 
     public int spread;
@@ -161,7 +161,7 @@ public class Playerator : MonoBehaviour
         DoGrow();
         DoSpeed();
         powerMult = this.transform.localScale.x;
-        spread = (int)(powerMult + 3);
+        spread = (int)(powerMult * 2 + 3);
 
         if (tdc.movement.magnitude > 0)
         {

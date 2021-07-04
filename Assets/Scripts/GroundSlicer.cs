@@ -15,6 +15,7 @@ public class GroundSlicer : MonoBehaviour
 
     public GameObject enemyParent;
     public Transform testPlayer;
+    public Transform testBoss;
     [HideInInspector]
     public float gUp;
     float gDown;
@@ -168,26 +169,33 @@ public class GroundSlicer : MonoBehaviour
         // Gizmos.DrawSphere(new Vector3(gRight, gDown / 2, 0), 1);
         // 
 
-            foreach (float f in slicedGround)
-            {
-                Gizmos.color = Color.black;
-                Gizmos.DrawLine(new Vector3(gLeft, f, 0), new Vector3(gRight, f, 0));
-            }
-            foreach (Transform ts in enemyParent.transform)
-            {
-                int[] tmp = getSlices(ts.position.y, ts.gameObject.GetComponent<EnemyController>().spread);
-                foreach (int i in tmp)
-                {
-                    Gizmos.color = Color.cyan;
-                    Gizmos.DrawSphere(new Vector3(ts.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
-                }
-            }
-            int[] tmp2 = getSlices(testPlayer.position.y, testPlayer.gameObject.GetComponent<Playerator>().spread);
-            foreach (int i in tmp2)
-                {
-                    Gizmos.color = Color.cyan;
-                    Gizmos.DrawSphere(new Vector3(testPlayer.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
-                }
+//             foreach (float f in slicedGround)
+//             {
+//                 Gizmos.color = Color.black;
+//                 Gizmos.DrawLine(new Vector3(gLeft, f, 0), new Vector3(gRight, f, 0));
+//             }
+//             foreach (Transform ts in enemyParent.transform)
+//             {
+//                 int[] tmp = getSlices(ts.position.y, ts.gameObject.GetComponent<EnemyController>().spread);
+//                 foreach (int i in tmp)
+//                 {
+//                     Gizmos.color = Color.cyan;
+//                     Gizmos.DrawSphere(new Vector3(ts.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
+//                 }
+//             }
+//             int[] tmp2 = getSlices(testPlayer.position.y, testPlayer.gameObject.GetComponent<Playerator>().spread);
+//             foreach (int i in tmp2)
+//                 {
+//                     Gizmos.color = Color.cyan;
+//                     Gizmos.DrawSphere(new Vector3(testPlayer.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
+//                 }
+//             int[] tmp3 = getSlices(testBoss.position.y, testBoss.gameObject.GetComponent<BossScript>().spread);
+// //            Debug.Log(testBoss.gameObject.GetComponent<BossScript>().spread);
+//             foreach (int i in tmp3)
+//                 {
+//                     Gizmos.color = Color.cyan;
+//                     Gizmos.DrawSphere(new Vector3(testBoss.position.x, sliceInterval * i - sliceInterval / 2, 0), sliceInterval / 2);
+//                 }
         }
     }
 

@@ -165,4 +165,4 @@ MonoBehaviour:
   proteineHolder: {fileID: 1848460074549060740}
   vCam: {fileID: 0}
   minSpawnTimer: 2
-  maxSpawnTimer: 4
+  maxSpawnTimer: 5
