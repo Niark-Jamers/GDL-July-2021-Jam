@@ -51,8 +51,6 @@ public class Playerator : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
-
-
     public void TakeDamage(Damage.Profile hit)
     {
         impulseSource.GenerateImpulse(1);
@@ -72,7 +70,7 @@ public class Playerator : MonoBehaviour
     public void Grow(float i, float scale = 10000)
     {
         if (scale < this.transform.localScale.x /2)
-            i = i / growScaling;
+            i = i * growScaling;
         toGrow += i;
     }
 
@@ -85,7 +83,11 @@ public class Playerator : MonoBehaviour
             growTrueTimer = 0;
             toGrow--;
             protein--;
-            targetSize = targetSize * ( 1.02f * ( 1 + protein/100));
+            if (protein < 0)
+                protein = 0;
+            float growPow = ( 1.01f * ( 1 + (protein/maxProtein) / 10));
+           // Debug.Log(growPow);
+            targetSize = targetSize * growPow;
         }
         float tmp = transform.localScale.x;
         tmp = Mathf.Lerp(tmp, targetSize, Time.deltaTime * growSpeed);
@@ -107,7 +109,7 @@ public class Playerator : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         UpdateBars();
@@ -130,6 +132,8 @@ public class Playerator : MonoBehaviour
         if (other.tag == "Proteine")
         {
             protein += other.gameObject.GetComponent<Proteine>().power;
+            if (protein > 100)
+                protein = 100;
             Destroy(other.gameObject);
         }
         if (other.tag == "Food")
