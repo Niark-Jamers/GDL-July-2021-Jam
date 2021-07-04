@@ -32,6 +32,8 @@ public class Camerator : MonoBehaviour
 
     CinemachineFramingTransposer transposer;
 
+    Playerator playerator;
+
     public float baseCamSize = 5;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class Camerator : MonoBehaviour
         targetSize = baseCamSize;
         rbGround = camGround.gameObject.GetComponent<Rigidbody2D>();
         transposer = vCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        playerator = GameObject.FindObjectOfType<Playerator>();
         // Debug.Log(ratio);
         setX();
         YStart = GetLowYAtStart();
@@ -90,6 +93,7 @@ public class Camerator : MonoBehaviour
         updatedCamAtPos = this.transform.position.x;
         camPos.x = this.transform.position.x;
 
+#if false // Enable camera size depending on distance 
         Debug.DrawRay(camPos, rayDir * 100, Color.red, Time.deltaTime);
         hit = Physics2D.RaycastAll(camPos, rayDir, 1000, mask);
         for (int i = 0; i < hit.Length; i++)
@@ -98,6 +102,11 @@ public class Camerator : MonoBehaviour
             if (Vector2.Distance(camPos, hit[i].point) > 1)
                 targetSize = -hit[i].point.y;
         }
+#else
+
+        targetSize = baseCamSize + playerator.powerMult * 1.1f;
+#endif
+
 
         transposer.m_TrackedObjectOffset.y = 3 + targetSize / 3.0f - 1.0f;
 //        Debug.Log(transposer.m_TrackedObjectOffset.y);
