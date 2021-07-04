@@ -1060,6 +1060,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 875949053}
+    - target: {fileID: 9124257576552618055, guid: c4f2e6fa8549e8745ad7c48e695ca5f9,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf88fef23102ec8418e9128a45adb145, type: 3}
+    - target: {fileID: 9124257576552618055, guid: c4f2e6fa8549e8745ad7c48e695ca5f9,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8480187183140585244, guid: f5f27607c34ffc945bf1c81de514995b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4f2e6fa8549e8745ad7c48e695ca5f9, type: 3}
 --- !u!1001 &8138856022527185976
